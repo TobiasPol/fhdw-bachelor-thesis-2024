@@ -99,7 +99,7 @@ final             % draft beschleunigt die Kompilierung
 ]{biblatex}
   
 % Bibliograpthy
-\bibliography{library/library}
+\bibliography{library/Bachelor Thesis}
 
 % Keine Einrückung bei einem neuen Absatz 
 \parindent 0pt 
@@ -143,7 +143,7 @@ final             % draft beschleunigt die Kompilierung
 \setlength{\cftlistingsindent}{1.5em}
 
 \renewcommand\lstlistlistingname{Listingverzeichnis}
- 
+
 % Style für Kopf- und Fußzeilenfelder
 \pagestyle{fancy}
 \fancyhf{}
@@ -166,7 +166,7 @@ final             % draft beschleunigt die Kompilierung
 \definecolor{sh_string}{rgb}{0.0, 0.0, 0.0 }
 
 \lstset{ %
-  language=Java,
+  language=Python,
   basicstyle=\small\ttfamily,
   fontadjust, 
   xrightmargin=1mm,
@@ -200,15 +200,15 @@ final             % draft beschleunigt die Kompilierung
 
 \newcommand{\anhang}[1]{\setcounter{anhangcounter}{0}\refstepcounter{fktnr}
 \addcontentsline{fk}{subsection}{Anhang~\thefktnr: \hspace*{1em}#1}
-\subsection*{{Anhang~\thefktnr \hspace*{1em} #1 \hspace*{-1em}}}
+\subsection*{{Appendix~\thefktnr \hspace*{1em} #1 \hspace*{-1em}}}
 }
 
 \newcommand{\subanhang}[1]{\setcounter{anhangcounter}{0}\refstepcounter{subfktnr}
 \addcontentsline{fk}{subsubsection}{Anhang~\thesubfktnr: \hspace*{1em}#1}
-\subsubsection*{{Anhang~\thesubfktnr \hspace*{1em} #1 \hspace*{-1em}}}
+\subsubsection*{{Appendix~\thesubfktnr \hspace*{1em} #1 \hspace*{-1em}}}
 }
 
-\newcommand{\anhangsverzeichnis}{\mtcaddsection{\subsection*{Anhangsverzeichnis \@mkboth{FKT}{FKT}}}\@starttoc{fk}\newpage}
+\newcommand{\anhangsverzeichnis}{\mtcaddsection{\subsection*{Appendix \@mkboth{FKT}{FKT}}}\@starttoc{fk}\newpage}
 
 % Links im PDF
 \usepackage[pdfpagemode={UseOutlines}, plainpages=false,breaklinks=true,pdfpagelabels]{hyperref}
@@ -230,7 +230,7 @@ final             % draft beschleunigt die Kompilierung
 }
 
 % Verbessert das Referenzieren von Kapiteln, Abbildungen etc.
-\usepackage[german,capitalise]{cleveref}
+\usepackage[english,capitalise]{cleveref}
 
-\makeglossaries\makeglossaries 
-\input{config/Abkuerzungen}
+\makeglossaries\makeglossaries
+\input{config/List_of_abbreviations}

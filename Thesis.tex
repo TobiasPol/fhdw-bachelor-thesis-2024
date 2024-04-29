@@ -4,18 +4,18 @@
 %% Parameter - Hier auf die eigene Arbeit anpassen
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\studiengang}{STUDIENGANG ANGEBEN} 
-\newcommand{\spezialisierungsbereich}{SPEZIALISIERUNG ANGEBEN}
-\newcommand{\martikelnummer}{MARTIKELNUMMER ANGEBEN}
+\newcommand{\studiengang}{BFWC321B} 
+\newcommand{\spezialisierungsbereich}{Cyber Security}
+\newcommand{\martikelnummer}{100853}
 \newcommand{\dokumententyp}{Bachelorthesis}
 \newcommand{\abgabedatum}{\today} 
-\newcommand{\ort}{Paderborn} 
-\newcommand{\koorperationsunternehmen}{Unternehmen GmbH}
-\newcommand{\fhdwstandort}{Paderborn} % oder Bielefeld, Mettmann, ...
-\newcommand{\dokumententitel}{Konzeption und prototypische Realisierung einer \dokumententyp{} mit {\LaTeX}}
-\newcommand{\dokumentenautor}{Max Mustermann}
-\newcommand{\dokumentenautoradress}{Musterweg 123\\33102 Paderborn}
-\newcommand{\dokumentenpruefer}{Prof. Dr. Weis-Alles\\Prof. Dr. Besser}
+\newcommand{\ort}{Bergisch Gladbach} 
+\newcommand{\koorperationsunternehmen}{Bayer AG}
+\newcommand{\fhdwstandort}{Bergisch Gladbach} % oder Bielefeld, Mettmann, ...
+\newcommand{\dokumententitel}{A Deep Learning Approach for Predicting Pesticide Degradation Based on Enzyme Classes}
+\newcommand{\dokumentenautor}{Tobias Polley}
+\newcommand{\dokumentenautoradress}{Gutenbergstr. 5\\51469 Bergisch Gladbach}
+\newcommand{\dokumentenpruefer}{Prof. Dr. Thomas Ströder\\Fethi Temiz}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -30,7 +30,7 @@
 
 % Römische Seitennummerierung
 \pagenumbering{Roman}
- 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Titelseite
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -91,25 +91,22 @@
 % Arabische Seitennummerierung
 \pagenumbering{arabic} 
 
-\include{chapter/Einleitung}
-
-\include{chapter/Installation}
-
-\include{chapter/Grundlagen}
-
-\include{chapter/Zusammenfassung}
-	
+\include{chapter/Introduction}
+\include{chapter/Literature_Review}
+\include{chapter/Theoretical_Background}
+\include{chapter/Methodology}
+\include{chapter/Results}
+\include{chapter/Discussion}
+\include{chapter/Conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\include{chapter/Anhang}
-
-\include{chapter/Quellenverzeichnis}
-
+\include{chapter/Appendix}
+\include{chapter/List_of_references}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\include{chapter/Ehrenwoertliche_Erklaerung}
- 
+\include{chapter/Statement_of_indepent_work}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
