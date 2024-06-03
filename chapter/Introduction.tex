@@ -1,18 +1,36 @@
-\section*{Introduction}
-\addcontentsline{toc}{section}{Introduction}
+\section{Introduction}
+% \addcontentsline{toc}{section}{Introduction}
 \fancyhead[R]{Introduction}
 
 \subsection{Motivation}
 \label{sec:Motivation}
 
+In recent years, the prediction of pesticide degradation has gained significant attention due to the environmental and health impacts of pesticide residues. Traditional experimental methods for determining the degradation pathways and rates of pesticides are labor-intensive and time-consuming. Consequently, there is a growing need for computational methods that can efficiently and accurately predict the degradation behavior of pesticides. One promising approach involves leveraging the capabilities of deep learning to predict enzyme classes responsible for pesticide degradation based on their interaction with specific enzyme binding sites. By combining the prediction of the active binding sites of enzymes with their corresponding protein sequences, it is possible to develop a model that can accurately predict the enzyme class.
+
+This need is particularly pronounced at Bayer Crop Science, where the efficient and accurate prediction of pesticide degradation is crucial for developing environmentally friendly and safe agricultural products. The implementation of advanced computational methods, such as deep learning, can significantly enhance Bayer Crop Science's ability to predict and manage the environmental impact of their pesticide products, ensuring compliance with regulatory standards and promoting sustainable agricultural practices.
+
 
 \subsection{Problem Statement}
 \label{sec:Problem Statement}
 
+Despite advancements in bioinformatics and computational biology, predicting enzyme-mediated pesticide degradation is still fraught with uncertainties. Traditional methods rely heavily on experimental data, which can be resource-intensive and time-consuming. Moreover, the vast diversity of enzyme functions and their complex interactions with various substrates add layers of difficulty to accurate predictions. Thus, there is a pressing need for computational tools that leverage modern machine learning techniques to enhance the prediction accuracy of enzyme-related pesticide degradation. Moreover, there are several models available for predicting enzyme classes based on sequence data, but few studies have explored the use of deep learning models to predict enzyme classes based on pesticide structure data. Therefore, this study aims to address this gap by developing a deep learning model that can predict enzyme classes responsible for pesticide degradation based on their interaction with specific enzyme binding sites.
 
+ 
 \subsection{Purpose and Research Question}
 \label{sec:Objective}
+
+This thesis aims to develop a deep learning model to predict the degradation of pesticides based on enzyme classes. The core research question guiding this study is: "How can deep learning be applied to predict pesticide degradation pathways based on enzyme class data?" By addressing this question, the study seeks to contribute to the fields of computational biology and environmental science, providing a tool that can aid in the rapid assessment of pesticide biodegradation potential. In addition, this research aims to outperform existing models in predicting enzyme classes responsible for pesticide degradation, thereby enhancing the accuracy of enzyme classification predictions.
 
 
 \subsection{Structure of the Thesis}
 \label{sec:Structure of the Thesis}
+This thesis is structured into five chapters, each addressing different aspects of the research and providing a comprehensive overview of the study.
+The first chapter sets the stage for the entire thesis. It begins by outlining the motivation behind the research, highlighting the environmental concerns related to pesticide use and the need for effective degradation prediction methods. The problem statement section identifies the challenges associated with predicting enzyme-mediated pesticide degradation. The purpose and research question section defines the main objective of the study, which is to develop a deep learning model to predict pesticide degradation based on enzyme classes. Finally, this chapter provides an overview of the structure of the thesis.
+
+The literature review chapter delves into existing research and foundational theories relevant to the study. It covers enzymatic mechanisms involved in pesticide breakdown, offering insights into how enzymes facilitate the degradation process. Additionally, it explores the application of deep learning techniques in environmental science, emphasizing their potential to enhance predictive accuracy. The chapter also includes sections on the principles of enzymology, detailing enzyme classification, function, and their role in biodegradation, as well as the fundamentals of deep learning, including introductions to geometric deep learning and model evaluation techniques.
+
+The methodology chapter provides a detailed description of the research design and procedures followed in this study. It begins with data collection, specifying the sources and preprocessing steps to prepare the dataset for analysis. The feature engineering section discusses how relevant features were extracted from the data to improve model performance. The chapter then explains the model development process, including the architecture of the deep learning model, the training process, and the techniques used for model evaluation to ensure its reliability and accuracy.
+
+The results chapter presents the outcomes of the research. It begins with an evaluation of the model's performance, highlighting key metrics and the effectiveness of the model in predicting pesticide degradation. A comparative analysis with existing models is included to demonstrate the improvements and advantages of the developed model. The chapter also interprets the model predictions, offering insights into the practical implications of the findings and how they can be applied in real-world scenarios.
+
+The discussion chapter summarizes the key findings of the research, reflecting on the significance and impact of the results. It discusses the strengths and limitations of the study, acknowledging areas where the model performed well and identifying potential areas for improvement. The chapter concludes with an overview of the contributions to the field, highlighting the novelty and practical applications of the research. Additionally, it provides recommendations for future work, suggesting directions for further research to build on the findings of this study.

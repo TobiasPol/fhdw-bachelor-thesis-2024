@@ -32,22 +32,26 @@ final             % draft beschleunigt die Kompilierung
 ]
 {scrartcl}
 
+% Vorgaben der FHDW
+\usepackage[a4paper,left=4cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+
 %\setuptoc{toc}{totoc} % Inhaltsverzeichnis ins Inhaltsverzeichnis
 
-% Neue Deutsche Rechtschreibung und Deutsche Standardtexte
-\usepackage[ngerman]{babel} 
+% English language
+\usepackage[english]{babel}
 
 % Umlaute können verwendet werden
-\usepackage[utf8]{inputenc}   
+\usepackage[utf8]{inputenc}  
 
 % Echte Umlaute
-\usepackage[T1]{fontenc} 
+\usepackage[T1]{fontenc}
 
 % Latin Modern Font, Type1-Schriftart für nicht-englische Texte
-\usepackage{lmodern} 
+\usepackage{lmodern}
 
-% 1/2-zeiliger Zeilenabstand
-\usepackage[onehalfspacing]{setspace}
+% Zeilenabstand 1.5
+\usepackage{setspace}
+\setstretch{1.5}
 
 % Für die Defenition eigener Kopf- und Fußzeilen
 \usepackage{fancyhdr} 
@@ -73,8 +77,8 @@ final             % draft beschleunigt die Kompilierung
 % Ausgabe der aktuellen Uhrzeit für die Draft-Versionen
 \usepackage{datetime}
 
-% Deutsche Anführungszeichen
-\usepackage[babel,german=quotes]{csquotes}
+% Englische Anführungszeichen
+\usepackage{csquotes}
 
 % Konfiguration der Abbildungs- und Tabellenbezeichnungen
 \usepackage[format=hang, font={footnotesize, sf}, labelfont=bf, justification=raggedright,singlelinecheck=false]{caption}
@@ -153,17 +157,14 @@ final             % draft beschleunigt die Kompilierung
 \fancypagestyle{plain}{}
 
 % Macro für Quellenangaben unter Abbildungen und Tabellen
-\newcommand{\source}[1]{{\vspace{-1mm}\\\footnotesize\textsf{\textbf{Quelle:}} \textsf{#1}\par}}
+\newcommand{\source}[1]{{\vspace{-1mm}\\\footnotesize\textsf{\textbf{Source:}} \textsf{#1}\par}}
 
 % Anpassungen der Formatierung an Eclipse-Aussehen 
 % http://jevopi.blogspot.de/2010/03/nicely-formatted-listings-in-latex-with.html
-%\definecolor{sh_comment}{rgb}{0.12, 0.38, 0.18 } %adjusted, in Eclipse: {0.25, 0.42, 0.30 } = #3F6A4D
-%\definecolor{sh_keyword}{rgb}{0.37, 0.08, 0.25}  % #5F1441
-%\definecolor{sh_string}{rgb}{0.06, 0.10, 0.98} % #101AF9
-% Für Druckausgabe sollte alles schwarz sein
-\definecolor{sh_comment}{rgb}{0.0, 0.0, 0.0 }
-\definecolor{sh_keyword}{rgb}{0.0, 0.0, 0.0 }
-\definecolor{sh_string}{rgb}{0.0, 0.0, 0.0 }
+\definecolor{sh_comment}{rgb}{0.12, 0.38, 0.18 } %adjusted, in Eclipse: {0.25, 0.42, 0.30 } = #3F6A4D
+\definecolor{sh_keyword}{rgb}{0.37, 0.08, 0.25}  % #5F1441
+\definecolor{sh_string}{rgb}{0.06, 0.10, 0.98} % #101AF9
+
 
 \lstset{ %
   language=Python,
@@ -233,4 +234,4 @@ final             % draft beschleunigt die Kompilierung
 \usepackage[english,capitalise]{cleveref}
 
 \makeglossaries\makeglossaries
-\input{config/List_of_abbreviations}
+\input{config/List_of_abbreviations.tex}
