@@ -5,14 +5,12 @@
 \subsection{Principles of Enzymology}
 \label{sec:Principles of Enzymology}
 
-Enzymology is the study of enzymes, which are biological catalysts that accelerate biochemical reactions in living organisms. These macromolecules are essential for various cellular processes, including metabolism, DNA replication, and signal transduction. The understanding of enzyme structure, function, and kinetics is crucial for developing applications in biotechnology, medicine, and environmental science.
-
-
+Enzymology is the study of enzymes, which are biological catalysts that accelerate biochemical reactions in living organisms. These macromolecules are essential for various cellular processes, including metabolism, DNA replication, and signal transduction. The understanding of enzyme structure, function, and kinetics is crucial for developing applications in biotechnology, medicine, and environmental science. \footcite{robinsonEnzymesPrinciplesBiotechnological2015}
 
 \subsubsection{Enzyme Classification and Function}
 \label{sec:Enzyme Classification and Function}
 
-Enzymes are classified based on the reactions they catalyze, following a system established by the Enzyme Commission (EC). This classification system groups enzymes into six main classes, each with specific types of reactions they facilitate: \footcite{EnzymesPrinciplesBiotechnological}
+Enzymes are classified based on the reactions they catalyze, following a system established by the Enzyme Commission (EC). This classification system groups enzymes into six main classes, each with specific types of reactions they facilitate:
 
 \begin{compactenum}
     \item \textbf{Oxidoreductases:} These enzymes catalyze oxidation-reduction reactions, where the transfer of electrons occurs between molecules. Examples include dehydrogenases and oxidases.
@@ -56,7 +54,7 @@ A study by Veselovsky et al. (2001) emphasizes the importance of visualizing act
 
 Enzymes play a crucial role in the biodegradation of pollutants, including pesticides. The process involves the breakdown of complex organic molecules into simpler, less toxic forms. This degradation is essential for reducing environmental pollution and mitigating the adverse effects of hazardous chemicals.
 
-Hydrolytic Enzymes: Hydrolytic enzymes, such as esterases and amidases, catalyze the cleavage of ester and amide bonds in pesticide molecules. This hydrolysis results in the formation of smaller, more water-soluble compounds that are easier to further degrade and eliminate. For example, microbial esterases can hydrolyze organophosphate insecticides, significantly accelerating their breakdown. \footcite{munneckeEnzymaticHydrolysisOrganophosphate1976}
+Hydrolytic Enzymes: Hydrolytic enzymes, such as esterases and amidases, catalyze the cleavage of ester and amide bonds in pesticide molecules. This hydrolysis results in the formation of smaller, more water-soluble compounds that are easier to further degrade and eliminate. For example, microbial esterases can hydrolyze organophosphate insecticides, significantly accelerating their breakdown. \footcite{munneckeEnzymaticHydrolysisOrganophosphate1976a}
 
 Oxidative Enzymes: Oxidative enzymes, such as cytochrome P450 monooxygenases, introduce oxygen atoms into the pesticide molecules, increasing their solubility and reactivity. This oxidation process often converts the pesticides into less harmful substances or intermediates that can be further degraded by other enzymes. The cytochrome P450 enzymes are particularly versatile, capable of metabolizing a wide range of xenobiotics, including pesticides. \footcite{belloTheoreticalApproachMechanism2000}
 
@@ -64,17 +62,19 @@ Reductive Enzymes: Reductive enzymes, including reductases, catalyze the reducti
 
 The integration of enzymatic biodegradation with deep learning models can enhance the prediction and analysis of these processes. By using deep learning to analyze enzyme-substrate interactions and their corresponding (EC) classification, we can develop more accurate and efficient bioremediation strategies.
 
-\subsection{Fundamentals of Deep Learning}
+\subsection{Fundamentals of Machine Learning and Deep Learning}
 \label{sec:Fundamentals of Deep Learning}
+
+Machine Learning and Deep Learning are two powerful techniques in the realm of machine learning, each offering unique strengths for different types of data and prediction tasks. While deep learning excels at handling unstructured data and automatically extracting features, Machine Learning e.g. Random Forest is known for its robustness, interpretability, and effectiveness in handling structured data with high-dimensional features. This section focuses on the use of Random Forest for sequence-based predictions, particularly in the context of predicting enzyme classes based on protein sequences.
 
 \subsubsection{Introduction to Deep Learning}
 \label{sec:Introduction to Deep Learning}
 
 Deep learning has dramatically transformed various fields by enabling the analysis and interpretation of complex datasets. Unlike traditional machine learning methods, which often require manual feature extraction, deep learning models can automatically learn relevant features from raw data. This capability is largely due to the hierarchical structure of neural networks, which can capture multiple levels of abstraction.
 
-A deep neural network is composed of an input layer, multiple hidden layers, and an output layer. Each layer consists of nodes (neurons) that are interconnected with nodes from the previous and next layers. The strength of these connections is determined by weights, which are adjusted during the training process to minimize prediction error. The training is typically performed using a variant of stochastic gradient descent (SGD) and backpropagation, a method for computing the gradient of the loss function with respect to each weight.
+A deep neural network is composed of an input layer, multiple hidden layers, and an output layer. Each layer consists of nodes (neurons) that are interconnected with nodes from the previous and next layers. The strength of these connections is determined by weights, which are adjusted during the training process to minimize prediction error. The training is typically performed using a variant of stochastic gradient descent (SGD) and backpropagation, a method for computing the gradient of the loss function with respect to each weight. \footcite{bishopPatternRecognitionMachine2006}
 
-\newpage
+The following image illustrates the basic structure of a deep neural network:
 
 \begin{figure}[hbt]
     \centering
@@ -88,11 +88,7 @@ A deep neural network is composed of an input layer, multiple hidden layers, and
 
 In this structure, the input layer receives raw data. This data is then processed through one or more hidden layers, where the neurons apply weights and activation functions to capture complex patterns and features. Finally, the processed information reaches the output layer, where the final prediction or classification is made.
 
-Deep learning is particularly effective for problems involving high-dimensional and unstructured data, such as images, audio, and text. Its ability to automatically extract and learn complex features from raw data makes it superior to traditional machine learning methods, which often rely on manually engineered features that may not capture the full complexity of the data. Because of these advantages, Deep Learning is essential for predicting enzyme classes. Enzyme structures and their interactions with substrates are highly complex and multidimensional. Deep learning models can capture this complexity better than traditional machine learning models, which often struggle with high-dimensional data.
-
-They can automatically extract relevant features from raw data, such as protein sequences and structures. Traditional machine learning methods require manual feature engineering, which can be time-consuming and may not capture all relevant patterns.
-
-Deep learning models can handle large datasets efficiently, making them suitable for processing the vast amounts of data generated in environmental science and biotechnology. By leveraging deep learning techniques, researchers can develop more accurate and robust models for predicting enzyme classes.
+Deep learning is particularly effective for problems involving high-dimensional and unstructured data, such as images, audio, and text. Its ability to automatically extract and learn complex features from raw data makes it superior to traditional machine learning methods, which often rely on manually engineered features that may not capture the full complexity of the data.
 
 \subsubsection{Fundamentals of Ligand Binding Site Prediction}
 \label{sec:Fundamentals of Ligand Binding Site Prediction}
@@ -109,8 +105,25 @@ The following image illustrates the workflow of P2Rank, highlighting the process
 
 P2Rank's approach can significantly enhance the accuracy of predicting enzyme-mediated degradation of pesticides by providing detailed insights into the binding interactions at the molecular level. This integration of deep learning and enzyme analysis forms a robust framework for developing bioremediation strategies and understanding the environmental fate of various pollutants. \footcite{krivakP2RankMachineLearning2018}
 
-\subsubsection{Evaluation of Deep Learning Models}
-\label{sec:Evaluation of Deep Learning Models}
+\subsubsection{Sequence-Based Machine Learning}
+\label{sec:Sequence-Based Machine Learning}
+
+In this thesis context, sequence-based machine learning refers to the use of protein sequences as input data for predicting enzyme classes. The sequences are typically represented as strings of amino acids, with each amino acid corresponding to a specific position in the sequence. Machine learning models, such as Random Forest, can analyze these sequences and extract relevant features to predict the enzyme class. This approach uses a Random Forest algorithm, an ensemble learning method that operates by constructing a multitude of decision trees during training and outputting the mode of the classes (classification) or mean prediction (regression) of the individual trees. This method was introduced by Leo Breiman in 2001 and has since become a staple in bioinformatics and other scientific fields due to its versatility and performance. \footcite{breimanRandomForests2001}
+
+The workflow for sequence-based machine learning involves the following steps:
+
+\begin{enumerate}
+    \item \textbf{Feature Extraction}: The sequence data, such as amino acid sequences, are first transformed into numerical features. This can include k-mer counts, physicochemical properties of amino acids, and other sequence-derived features.
+    \item \textbf{Model Training}: These features are used to train the Random Forest model, which learns to associate specific patterns in the sequence data with enzyme classes.
+    \item \textbf{Prediction}: Once trained, the model can predict the enzyme class of new, unseen sequences.
+\end{enumerate}
+
+A significant advantage of using Random Forest in this context is its ability to handle complex interaction structures and high-dimensional feature spaces, which are common in biological sequence data. \footcite{diaz-uriarteGeneSelectionClassification2006}
+
+In the context of this study, deep learning techniques are utilized for predicting ligand-binding sites, which are crucial for understanding protein function and interaction with other molecules. Tools like p2rank can be used to predict these binding sites from protein structures, providing the base for a Random Forest model to predict the enzyme class based on the identified ligand-binding sites. This combined approach leverages the strengths of deep learning for feature extraction and Random Forest for classification, enhancing the accuracy and reliability of enzyme class predictions
+
+\subsubsection{Evaluation of Machine Learning Models}
+\label{sec:Evaluation of Machine Learning Models}
 
 Evaluating deep learning models involves several metrics and techniques to ensure their accuracy and generalizability. This is essential not only for validating the model’s performance but also for comparing it against other models. Using independent datasets for benchmarking is crucial to demonstrate the model's robustness and applicability to real-world scenarios. Several key metrics are commonly used to evaluate deep learning models:
 

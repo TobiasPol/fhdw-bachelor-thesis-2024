@@ -16,5 +16,500 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{AccuracyPrecision2024}{article}{}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Accuracy and precision are two measures of observational error. Accuracy is how close a given set of measurements (observations or readings) are to their true value. Precision is how close the measurements are to each other. In other words: Precision is a description of random errors (a measure of statistical variability). Accuracy has two definitions, per ISO: More commonly, a description of systematic errors (a measure of statistical bias of a given measure of central tendency). Low accuracy causes a difference between a result and a true value. This secondary measure is referred to as trueness by ISO. A combination of both types of observational error (random and systematic), so high accuracy requires both high precision and high trueness. In the first, more common definition of "accuracy" above, the concept is independent of "precision", so a particular set of data can be said to be accurate, precise, both, or neither. In simpler terms, given a statistical sample or set of data points from repeated measurements of the same quantity, the sample or set can be said to be accurate if their average is close to the true value of the quantity being measured, while the set can be said to be precise if their standard deviation is relatively small.}
+      \field{annotation}{Page Version ID: 1220739681}
+      \field{journaltitle}{Wikipedia}
+      \field{langid}{english}
+      \field{month}{4}
+      \field{title}{Accuracy and Precision}
+      \field{urlday}{31}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+    \endentry
+    \entry{belloTheoreticalApproachMechanism2000}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=f684e1022d6167f19d4ae83bf05a439a}{%
+           family={Bello},
+           familyi={B\bibinitperiod},
+           given={Angelica},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f1221141ad608e50a536b66bf8842102}{%
+           family={Carreon},
+           familyi={C\bibinitperiod},
+           given={Yessica},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ff5d08458d0a12baa2ac20c3b0f8caa4}{%
+           family={{Nava-Ocampo}},
+           familyi={N\bibinitperiod},
+           given={Alejandro},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{10f018c94f87e389616728513f948d0f}
+      \strng{fullhash}{10f018c94f87e389616728513f948d0f}
+      \strng{bibnamehash}{10f018c94f87e389616728513f948d0f}
+      \strng{authorbibnamehash}{10f018c94f87e389616728513f948d0f}
+      \strng{authornamehash}{10f018c94f87e389616728513f948d0f}
+      \strng{authorfullhash}{10f018c94f87e389616728513f948d0f}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Organophosphorus pesticides are the most common classes involved in poisonings related to pesticides. We used enzymatic activity of chloroperoxidase on the metabolism of some phosphorothioate pesticides published previously and molecular mechanics methods to perform a theoretical approach of the mechanism of biological oxidation of this class of pesticides. The molecular structure of eight pesticides were optimized by molecular mechanics methods using the CAChe program package for biomolecules, ver. 3.11 (Oxford Molecular Ltd., Campbell, CA). Total energy resulted from the structure optimization process and the partial charges of both phosphorus and sulfur were computed for every pesticide. Phosphorus partial charge and enzymatic activity were significantly related by linear regression analysis (r=0.82, P{$<$}0.05). Analyzing our results and using previously reported enzymatic activity of chloroperoxidase on these pesticides, we deduced chemical events involved in activation of the active site of chloroperoxidase and proposed a novel mechanism of oxidation for this class of pesticides. This mechanism will also help to understand the oxidation process of pesticides by cytochrome P450, and production of toxic metabolites.}
+      \field{journaltitle}{Toxicology}
+      \field{month}{8}
+      \field{title}{A Theoretical Approach to the Mechanism of Biological Oxidation of Organophosphorus Pesticides}
+      \field{volume}{149}
+      \field{year}{2000}
+      \field{pages}{63\bibrangedash 8}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1016/S0300-483X(00)00222-5
+      \endverb
+    \endentry
+    \entry{DeEPnDeepNeural}{misc}{}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://consensus.app/papers/deepn-network-based-tool-annotation-semwal/c62a6c023f2d5b2f9348b36f6329daae/?utm\_source=chatgpt}
+      \field{title}{{{DeEPn}}: A Deep Neural Network Based Tool for Enzyme Functional Annotation - {{Consensus}}}
+      \field{urlday}{29}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+    \endentry
+    \entry{emmert-streibIntroductoryReviewDeep2020}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=e9e257974007d21c37d4aafd5f53cc24}{%
+           family={{Emmert-Streib}},
+           familyi={E\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5184a75727b358b3be16203b1cc86784}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Zhenyi},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a9eea63e192707af4159298cdf21e97e}{%
+           family={Feng},
+           familyi={F\bibinitperiod},
+           given={Han},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=673acb3f774a9dcdd6864f87738eba08}{%
+           family={Tripathi},
+           familyi={T\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=adb9b4006c2619ecdceebc2692a3df95}{%
+           family={Dehmer},
+           familyi={D\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3a6cb0509148d163948f8fa90b8b28b8}
+      \strng{fullhash}{e0933b380173f4fe6fcba7eb31f04e1e}
+      \strng{bibnamehash}{e0933b380173f4fe6fcba7eb31f04e1e}
+      \strng{authorbibnamehash}{e0933b380173f4fe6fcba7eb31f04e1e}
+      \strng{authornamehash}{3a6cb0509148d163948f8fa90b8b28b8}
+      \strng{authorfullhash}{e0933b380173f4fe6fcba7eb31f04e1e}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Deep learning models stand for a new learning paradigm in artificial intelligence (AI) and machine learning. Recent breakthrough results in image analysis and speech recognition have generated a massive interest in this field because also applications in many other domains providing big data seem possible. On a downside, the mathematical and computational methodology underlying deep learning models is very challenging, especially for interdisciplinary scientists. For this reason, we present in this paper an introductory review of deep learning approaches including Deep Feedforward Neural Networks (D-FFNN), Convolutional Neural Networks (CNNs), Deep Belief Networks (DBNs), Autoencoders (AEs), and Long Short-Term Memory (LSTM) networks. These models form the major core architectures of deep learning models currently used and should belong in any data scientist's toolbox. Importantly, those core architectural building blocks can be composed flexibly---in an almost Lego-like manner---to build new application-specific network architectures. Hence, a basic understanding of these network architectures is important to be prepared for future developments in AI.}
+      \field{journaltitle}{Frontiers in Artificial Intelligence}
+      \field{title}{An {{Introductory Review}} of {{Deep Learning}} for {{Prediction Models With Big Data}}}
+      \field{urlday}{31}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{volume}{3}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.3389/frai.2020.00004
+      \endverb
+      \verb{file}
+      \verb /Users/tobias.polley/Zotero/storage/5856BVP6/Emmert-Streib et al. - 2020 - An Introductory Review of Deep Learning for Predic.pdf
+      \endverb
+    \endentry
+    \entry{EnzymesPrinciplesBiotechnological}{misc}{}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://consensus.app/papers/enzymes-principles-applications-robinson/ae03e77090335664b83066824731b95f/?utm\_source=chatgpt}
+      \field{title}{Enzymes: Principles and Biotechnological Applications - {{Consensus}}}
+      \field{urlday}{30}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+    \endentry
+    \entry{Fscore2024}{article}{}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In statistical analysis of binary classification and information retrieval systems, the F-score or F-measure is a measure of predictive performance. It is calculated from the precision and recall of the test, where the precision is the number of true positive results divided by the number of all samples predicted to be positive, including those not identified correctly, and the recall is the number of true positive results divided by the number of all samples that should have been identified as positive. Precision is also known as positive predictive value, and recall is also known as sensitivity in diagnostic binary classification. The F1 score is the harmonic mean of the precision and recall. It thus symmetrically represents both precision and recall in one metric. The more generic F {$\beta$} \{{\textbackslash}displaystyle F\_\{{\textbackslash}beta \}\} score applies additional weights, valuing one of precision or recall more than the other. The highest possible value of an F-score is 1.0, indicating perfect precision and recall, and the lowest possible value is 0, if precision and recall are zero.}
+      \field{annotation}{Page Version ID: 1225870376}
+      \field{journaltitle}{Wikipedia}
+      \field{langid}{english}
+      \field{month}{5}
+      \field{title}{F-Score}
+      \field{urlday}{31}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+    \endentry
+    \entry{fuDegradationPesticidesDiazinon2021}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=ce8e218f51c5f0d202d9139f0862f4ee}{%
+           family={Fu},
+           familyi={F\bibinitperiod},
+           given={Yuzhuang},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ecbdc692c887d7b14f27ebf3a1c39e00}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Yuwei},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6ba23e777b57c99aeeceed8bf1c81916}{%
+           family={Fan},
+           familyi={F\bibinitperiod},
+           given={Fangfang},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=632d4b6f8ef1b9b17b14d4e803548eb1}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Binju},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=68bd613c80ef7cb7b4d7d333770ab71c}{%
+           family={Cao},
+           familyi={C\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1bbd1cf805564ce80613c449adc468d8}
+      \strng{fullhash}{134fa7c7dc1c491088fa784640f86f7c}
+      \strng{bibnamehash}{134fa7c7dc1c491088fa784640f86f7c}
+      \strng{authorbibnamehash}{134fa7c7dc1c491088fa784640f86f7c}
+      \strng{authornamehash}{1bbd1cf805564ce80613c449adc468d8}
+      \strng{authorfullhash}{134fa7c7dc1c491088fa784640f86f7c}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Enzymatic hydrolysis by phosphotriesterase (PTE) is one of the most effective ways of degrading organophosphorus pesticides, but the catalytic efficiency depends on the structural features of substrates. Here the enzymatic degradation of diazinon (DIN) and diazoxon (DON), characterized by PS and PO, respectively, have been investigated by QM/MM calculations and MM MD simulations. Our calculations demonstrate that the hydrolysis of DON (with PO) is inevitably initiated by the nucleophilic attack of the bridging-OH- on the phosphorus center, while for DIN (with PS), we proposed a new degradation mechanism, initiated by the nucleophilic attack of the Zn{$\alpha$}-bound water molecule, for its low-energy pathway. For both DIN and DON, the hydrolytic reaction is predicted to be the rate-limiting step, with energy barriers of 18.5 and 17.7 kcal mol-1, respectively. The transportation of substrates to the active site, the release of the leaving group and the degraded product are generally verified to be favorable by MD simulations via umbrella sampling, both thermodynamically and dynamically. The side-chain residues Phe132, Leu271 and Tyr309 play the gate-switching role to manipulate substrate delivery and product release. In comparison with the DON-enzyme system, the degraded product of DIN is more easily released from the active site. These new findings will contribute to the comprehensive understanding of the enzymatic degradation of toxic organophosphorus compounds by PTE.}
+      \field{journaltitle}{Physical chemistry chemical physics : PCCP}
+      \field{shorttitle}{Degradation of Pesticides Diazinon and Diazoxon by Phosphotriesterase}
+      \field{title}{Degradation of Pesticides Diazinon and Diazoxon by Phosphotriesterase: Insight into Divergent Mechanisms from {{QM}}/{{MM}} and {{MD}} Simulations.}
+      \field{urlday}{29}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.1039/d1cp05034f
+      \endverb
+    \endentry
+    \entry{krivakP2RankMachineLearning2018}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=96f8471a27a2959982378c0368ac242f}{%
+           family={Krivák},
+           familyi={K\bibinitperiod},
+           given={Radoslav},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a733eed2805ded200a1bb2033ffc300b}{%
+           family={Hoksza},
+           familyi={H\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a073d680238c38c2898d500e1c863fc7}
+      \strng{fullhash}{a073d680238c38c2898d500e1c863fc7}
+      \strng{bibnamehash}{a073d680238c38c2898d500e1c863fc7}
+      \strng{authorbibnamehash}{a073d680238c38c2898d500e1c863fc7}
+      \strng{authornamehash}{a073d680238c38c2898d500e1c863fc7}
+      \strng{authorfullhash}{a073d680238c38c2898d500e1c863fc7}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Ligand binding site prediction from protein structure has many applications related to elucidation of protein function and structure based drug discovery. It often represents only one step of many in complex computational drug design efforts. Although many methods have been published to date, only few of them are suitable for use in automated pipelines or for processing large datasets. These use cases require stability and speed, which disqualifies many of the recently introduced tools that are either template based or available only as web servers.}
+      \field{issn}{1758-2946}
+      \field{journaltitle}{Journal of Cheminformatics}
+      \field{month}{8}
+      \field{number}{1}
+      \field{shorttitle}{{{P2Rank}}}
+      \field{title}{{{P2Rank}}: Machine Learning Based Tool for Rapid and Accurate Prediction of Ligand Binding Sites from Protein Structure}
+      \field{urlday}{29}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{volume}{10}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \field{pages}{39}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1186/s13321-018-0285-8
+      \endverb
+      \verb{file}
+      \verb /Users/tobias.polley/Zotero/storage/DPUM26V8/Krivák and Hoksza - 2018 - P2Rank machine learning based tool for rapid and .pdf;/Users/tobias.polley/Zotero/storage/VX3GIXPD/s13321-018-0285-8.html
+      \endverb
+      \keyw{Binding site prediction,Ligand binding sites,Machine learning,Protein pockets,Protein surface descriptors,Random forests}
+    \endentry
+    \entry{liDEEPreSequencebasedEnzyme2017}{article}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=b0a63a9f832f00cc0a29c361a64c672e}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Yu},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6bf0d8a8573aa1ba9713d0e20811cdb7}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Sheng},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=969f7c2b7da0faff2d0113a29122b42f}{%
+           family={Umarov},
+           familyi={U\bibinitperiod},
+           given={Ramzan},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0ba426c4fda246284217aaef64011d2f}{%
+           family={Xie},
+           familyi={X\bibinitperiod},
+           given={Bingqing},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=deaad030b679c43a5832ab6832e2cc45}{%
+           family={Fan},
+           familyi={F\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=675acf02eec039dcc1a02ee5e4206180}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Lihua},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b5ecefa5e74745f1373c15347bb0c72f}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Xin},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{33ba7c5cd88c1858dc20cc58359794b2}
+      \strng{fullhash}{5a15b305e1c8af0c5785104cd97d331f}
+      \strng{bibnamehash}{5a15b305e1c8af0c5785104cd97d331f}
+      \strng{authorbibnamehash}{5a15b305e1c8af0c5785104cd97d331f}
+      \strng{authornamehash}{33ba7c5cd88c1858dc20cc58359794b2}
+      \strng{authorfullhash}{5a15b305e1c8af0c5785104cd97d331f}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Motivation Annotation of enzyme function has a broad range of applications, such as metagenomics, industrial biotechnology, and diagnosis of enzyme deficiency-caused diseases. However, the time and resource required make it prohibitively expensive to experimentally determine the function of every enzyme. Therefore, computational enzyme function prediction has become increasingly important. In this paper, we develop such an approach, determining the enzyme function by predicting the Enzyme Commission number. Results We propose an end-to-end feature selection and classification model training approach, as well as an automatic and robust feature dimensionality uniformization method, DEEPre, in the field of enzyme function prediction. Instead of extracting manually crafted features from enzyme sequences, our model takes the raw sequence encoding as inputs, extracting convolutional and sequential features from the raw encoding based on the classification result to directly improve the prediction performance. The thorough cross-fold validation experiments conducted on two large-scale datasets show that DEEPre improves the prediction performance over the previous state-of-the-art methods. In addition, our server outperforms five other servers in determining the main class of enzymes on a separate low-homology dataset. Two case studies demonstrate DEEPre's ability to capture the functional difference of enzyme isoforms. Availability and implementation The server could be accessed freely at http://www.cbrc.kaust.edu.sa/DEEPre. Contact xin.gao@kaust.edu.sa Supplementary information Supplementary data are available at Bioinformatics online.}
+      \field{journaltitle}{Bioinformatics}
+      \field{shorttitle}{{{DEEPre}}}
+      \field{title}{{{DEEPre}}: Sequence-Based Enzyme {{EC}} Number Prediction by Deep Learning}
+      \field{urlday}{29}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{volume}{34}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \field{pages}{760\bibrangedash 769}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1093/bioinformatics/btx680
+      \endverb
+      \verb{file}
+      \verb /Users/tobias.polley/Zotero/storage/DUKBWBT8/Li et al. - 2017 - DEEPre sequence-based enzyme EC number prediction.pdf
+      \endverb
+    \endentry
+    \entry{PrecisionRecall2024}{article}{}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In pattern recognition, information retrieval, object detection and classification (machine learning), precision and recall are performance metrics that apply to data retrieved from a collection, corpus or sample space. Precision (also called positive predictive value) is the fraction of relevant instances among the retrieved instances. Written as a formula: Recall (also known as sensitivity) is the fraction of relevant instances that were retrieved. Written as a formula: Both precision and recall are therefore based on relevance. Consider a computer program for recognizing dogs (the relevant element) in a digital photograph. Upon processing a picture which contains ten cats and twelve dogs, the program identifies eight dogs. Of the eight elements identified as dogs, only five actually are dogs (true positives), while the other three are cats (false positives). Seven dogs were missed (false negatives), and seven cats were correctly excluded (true negatives). The program's precision is then 5/8 (true positives / selected elements) while its recall is 5/12 (true positives / relevant elements). Adopting a hypothesis-testing approach from statistics, in which, in this case, the null hypothesis is that a given item is irrelevant (i.e., not a dog), absence of type I and type II errors (i.e., perfect specificity and sensitivity of 100\% each) corresponds respectively to perfect precision (no false positive) and perfect recall (no false negative). More generally, recall is simply the complement of the type II error rate (i.e., one minus the type II error rate). Precision is related to the type I error rate, but in a slightly more complicated way, as it also depends upon the prior distribution of seeing a relevant vs. an irrelevant item. The above cat and dog example contained 8 - 5 = 3 type I errors (false positives) out of 10 total cats (true negatives), for a type I error rate of 3/10, and 12 - 5 = 7 type II errors (false negatives), for a type II error rate of 7/12. Precision can be seen as a measure of quality, and recall as a measure of quantity. Higher precision means that an algorithm returns more relevant results than irrelevant ones, and high recall means that an algorithm returns most of the relevant results (whether or not irrelevant ones are also returned).}
+      \field{annotation}{Page Version ID: 1220938692}
+      \field{journaltitle}{Wikipedia}
+      \field{langid}{english}
+      \field{month}{4}
+      \field{title}{Precision and Recall}
+      \field{urlday}{31}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+    \endentry
+    \entry{ReceiverOperatingCharacteristic2024}{article}{}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A receiver operating characteristic curve, or ROC curve, is a graphical plot that illustrates the performance of a binary classifier model (can be used for multi class classification as well) at varying threshold values. The ROC curve is the plot of the true positive rate (TPR) against the false positive rate (FPR) at each threshold setting. The ROC can also be thought of as a plot of the statistical power as a function of the Type I Error of the decision rule (when the performance is calculated from just a sample of the population, it can be thought of as estimators of these quantities). The ROC curve is thus the sensitivity or recall as a function of false positive rate. Given the probability distributions for both true positive and false positive are known, the ROC curve is obtained as the cumulative distribution function (CDF, area under the probability distribution from - {$\infty$} \{{\textbackslash}displaystyle -{\textbackslash}infty \} to the discrimination threshold) of the detection probability in the y-axis versus the CDF of the false positive probability on the x-axis. ROC analysis provides tools to select possibly optimal models and to discard suboptimal ones independently from (and prior to specifying) the cost context or the class distribution. ROC analysis is related in a direct and natural way to cost/benefit analysis of diagnostic decision making.}
+      \field{annotation}{Page Version ID: 1226127318}
+      \field{journaltitle}{Wikipedia}
+      \field{langid}{english}
+      \field{month}{5}
+      \field{title}{Receiver Operating Characteristic}
+      \field{urlday}{31}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+    \endentry
+    \entry{uniprotconsortiumUniProtUniversalProtein2021}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5baa254969d406bc780dc02b1fc2aa11}{%
+           family={{UniProt Consortium}},
+           familyi={U\bibinitperiod}}}%
+      }
+      \strng{namehash}{5baa254969d406bc780dc02b1fc2aa11}
+      \strng{fullhash}{5baa254969d406bc780dc02b1fc2aa11}
+      \strng{bibnamehash}{5baa254969d406bc780dc02b1fc2aa11}
+      \strng{authorbibnamehash}{5baa254969d406bc780dc02b1fc2aa11}
+      \strng{authornamehash}{5baa254969d406bc780dc02b1fc2aa11}
+      \strng{authorfullhash}{5baa254969d406bc780dc02b1fc2aa11}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{The aim of the UniProt Knowledgebase is to provide users with a comprehensive, high-quality and freely accessible set of protein sequences annotated with functional information. In this article, we describe significant updates that we have made over the last two years to the resource. The number of sequences in UniProtKB has risen to approximately 190 million, despite continued work to reduce sequence redundancy at the proteome level. We have adopted new methods of assessing proteome completeness and quality. We continue to extract detailed annotations from the literature to add to reviewed entries and supplement these in unreviewed entries with annotations provided by automated systems such as the newly implemented Association-Rule-Based Annotator (ARBA). We have developed a credit-based publication submission interface to allow the community to contribute publications and annotations to UniProt entries. We describe how UniProtKB responded to the COVID-19 pandemic through expert curation of relevant entries that were rapidly made available to the research community through a dedicated portal. UniProt resources are available under a CC-BY (4.0) license via the web at https://www.uniprot.org/.}
+      \field{issn}{1362-4962}
+      \field{journaltitle}{Nucleic Acids Research}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{number}{D1}
+      \field{shorttitle}{{{UniProt}}}
+      \field{title}{{{UniProt}}: The Universal Protein Knowledgebase in 2021}
+      \field{volume}{49}
+      \field{year}{2021}
+      \field{pages}{D480\bibrangedash D489}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1093/nar/gkaa1100
+      \endverb
+      \verb{file}
+      \verb /Users/tobias.polley/Zotero/storage/U7EEGKND/UniProt Consortium - 2021 - UniProt the universal protein knowledgebase in 20.pdf
+      \endverb
+      \keyw{Computational Biology,COVID-19,Data Curation,Databases Protein,Humans,Internet,Knowledge Bases,Molecular Sequence Annotation,Pandemics,Proteome,Proteomics,SARS-CoV-2,User-Computer Interface,Viral Proteins}
+    \endentry
+    \entry{veselovskyApproachVisualizationActive2001}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=794bb65ded17fb7eda0f331760607c18}{%
+           family={Veselovsky},
+           familyi={V\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=43038433a2b6e46c504ce33c590100b8}{%
+           family={Tikhonova},
+           familyi={T\bibinitperiod},
+           given={O.},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=08a29d8451953807c9305617d570465d}{%
+           family={Skvortsov},
+           familyi={S\bibinitperiod},
+           given={Vladlen\bibnamedelima S.},
+           giveni={V\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0e13876fdb58014bdeacfe2d9db6599b}{%
+           family={Medvedev},
+           familyi={M\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2b6d19ef74f83d145624b6dfbcfa080f}{%
+           family={Ivanov},
+           familyi={I\bibinitperiod},
+           given={A.\bibnamedelimi S.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{da1716c4db64f51a04ccfe82de073ff5}
+      \strng{fullhash}{f1748f9997ae7f48b410fdded89a0796}
+      \strng{bibnamehash}{f1748f9997ae7f48b410fdded89a0796}
+      \strng{authorbibnamehash}{f1748f9997ae7f48b410fdded89a0796}
+      \strng{authornamehash}{da1716c4db64f51a04ccfe82de073ff5}
+      \strng{authorfullhash}{f1748f9997ae7f48b410fdded89a0796}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Abstract A new approach for virtual characterization of the active site structure of enzymes with unknown three-dimensional (3D) structure has been proposed. It includes analysis of data on enzyme interaction with reversible competitive inhibitors, their 3D structures and moulding of the substrate-binding region. The superposition of ligands in biologically active conformations allows to determine the shape and dimension of the active site cavity accommodating these compounds. Monoamine oxidase A (MAO-A), a ``typical'' enzyme with unknown spatial organisation, was used to test this method. The correctness of such approach was validated by the analysis of HIV protease interaction with its inhibitors using 3D structures of their complexes. Mould of the substrate/inhibitor binding site can be used for the visualization of this binding site and for searching new ligands in molecular databases.}
+      \field{journaltitle}{SAR and QSAR in Environmental Research}
+      \field{title}{An {{Approach}} for {{Visualization}} of the {{Active Site}} of {{Enzymes}} with {{Unknown Three-Dimensional Structures}}}
+      \field{urlday}{30}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{volume}{12}
+      \field{year}{2001}
+      \field{urldateera}{ce}
+      \field{pages}{345\bibrangedash 358}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1080/10629360108033243
+      \endverb
+      \verb{file}
+      \verb /Users/tobias.polley/Zotero/storage/CUSMC9WJ/b12c36ed3fa05b34aff7f6c416fd1730.html
+      \endverb
+    \endentry
+  \enddatalist
+  \missing{munneckeEnzymaticHydrolysisOrganophosphate1976}
+\endrefsection
 \endinput
 

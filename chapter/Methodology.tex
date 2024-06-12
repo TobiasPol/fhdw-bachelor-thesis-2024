@@ -5,11 +5,89 @@
 \subsection{Data Collection}
 \label{sec:Data Collection}
 
-\subsubsection{Data Sources}
-\label{sec:Data Sources}
+Data collection is a critical step in developing predictive models, as the quality and relevance of the data directly impact the model's performance. In this thesis, the data was collected from Uniprot, a comprehensive resource for protein sequence and functional information. The focus was on obtaining high-quality, reviewed entries with 3D structural data and catalytic properties to ensure the reliability and applicability of the data for predicting enzyme functions. \footcite{uniprotconsortiumUniProtUniversalProtein2021}
 
-\subsubsection{Data Preprocessing}
+Uniprot, or the Universal Protein Resource, is a central repository of protein sequence and annotation data. It is widely recognized for its comprehensive, high-quality data, making it an essential resource for bioinformatics and computational biology. Uniprot integrates information from various sources, including experimental studies, computational analysis, and literature, providing a rich and reliable dataset for scientific research.
+Key features of Uniprot include:
+
+\begin{enumerate}
+    \item Comprehensive Protein Data: Uniprot contains a vast collection of protein sequences, functional annotations, and cross-references to other databases, making it a valuable resource for protein research.
+    \item Reviewed Entries: Uniprot contains both reviewed (Swiss-Prot) and unreviewed (TrEMBL) entries. Reviewed entries are manually curated by experts, ensuring high accuracy and reliability.
+    \item Functional Annotations: Each protein entry includes detailed functional annotations, such as catalytic activity, biological processes, and involvement in pathways.
+    \item 3D Structural Data: Uniprot links to structural databases like PDB (Protein Data Bank), providing access to 3D structures of proteins, which are crucial for understanding enzyme mechanisms.
+    \item Cross-references: Extensive cross-references to other databases (e.g., PDB, BRENDA, Reactome) enhance the richness of the data.
+\end{enumerate}
+
+For this study, Uniprot was chosen due to its high-quality data, extensive coverage of protein information, and user-friendly interface. The data collection process involved querying Uniprot for enzyme entries with 3D structural data and catalytic activity annotations, extracting relevant information, and preprocessing the data for model development. The next sections describe the data preprocessing, feature engineering, and model development steps in detail.
+
+The data retrieval process involved using the Uniprot REST API to download protein data that matched specific criteria. The criteria included reviewed entries with both 3D structural data and catalytic properties. The Python script below was used to automate the data retrieval and preprocessing steps:  \footcite{polleyTobiasPolDeepZyme2024}
+
+\begin{figure}[bht]
+\begin{lstlisting}[caption=Python script for data retrieval and preprocessing from Uniprot, label=lst:uniprot_data_retrieval]
+
+import requests
+from tqdm import tqdm
+import gzip
+from io import BytesIO
+import pandas as pd
+
+base_url = "https://rest.uniprot.org/uniprotkb/search?compressed=true&
+fields=accession%2Creviewed%2Cid%2Cprotein_name%2Cgene_names%2Corganism_name%
+2Cec%2Corganism_id%2Crhea%2Cxref_alphafolddb%2Cxref_pdb%2Cxref_brenda%
+2Cxref_biocyc%2Cxref_pathwaycommons%2Cxref_sabio-rk%2Cxref_reactome%
+2Cxref_plantreactome%2Cxref_signor%2Cxref_signalink%2Cxref_unipathway&
+format=tsv&query=%28*%29+AND+%28reviewed%3Atrue%29+AND+%28proteins_with%
+3A1%29+AND+%28proteins_with%3A13%29"
+
+size = 500
+offset = 0
+all_data = []
+
+response = requests.get(f"{base_url}&size=1")
+if response.status_code == 200:
+    total_results = int(response.headers.get("x-total-results", 0))
+else:
+    print(f"Fehler beim Abrufen der Daten: {response.status_code}")
+    total_results = 0
+
+with tqdm(total=total_results, desc="Abrufen der Daten", unit=" Eintrag") as pbar:
+    while offset < total_results:
+        url = f"{base_url}&size={size}&offset={offset}"
+        response = requests.get(url)
+        
+        if response.status_code == 200:
+            with gzip.GzipFile(fileobj=BytesIO(response.content)) as f:
+                data = f.read().decode('utf-8')
+            if not data.strip():
+                break
+            all_data.append(data)
+            offset += size
+            pbar.update(size)
+        else:
+            print(f"Fehler beim Abrufen der Daten: {response.status_code}")
+            break
+
+combined_data = "\n".join(all_data)
+
+df = pd.read_csv(BytesIO(combined_data.encode('utf-8')), sep='\t')
+
+\end{lstlisting}
+\end{figure}
+
+
+\begin{compactenum}
+    \item API Request: The script constructs a query to the Uniprot REST API to retrieve reviewed protein entries with specified fields and criteria.
+    \item Data Retrieval: Data is retrieved in compressed format and decompressed using gzip.
+    \item Data Parsing: The decompressed data is read into a Pandas DataFrame.
+    \item Data Filtering: The DataFrame is filtered to retain entries with non-null EC numbers and PDB codes.
+    \item Data Splitting: Entries with multiple PDB codes are split into separate rows for each PDB code.
+    \item Data Saving: The processed data is saved as a TSV file for further analysis.
+\end{compactenum}
+
+\subsection{Data Preprocessing}
 \label{sec:Data Preprocessing}
+
+
 
 \subsection{Feature Engineering}
 \label{sec:Feature Engineering}
