@@ -5,7 +5,7 @@
 \subsection{Data Collection}
 \label{sec:Data Collection}
 
-Data collection is a critical step in developing predictive models, as the quality and relevance of the data directly impact the model's performance. In this thesis, the data was collected from Uniprot, a comprehensive resource for protein sequence and functional information. The focus was on obtaining high-quality, reviewed entries with 3D structural data and catalytic properties to ensure the reliability and applicability of the data for predicting enzyme functions. \footcite{uniprotconsortiumUniProtUniversalProtein2021}
+Data collection is a critical step in developing predictive models, as the quality and relevance of the data directly impact the model's performance. In this thesis, the data was collected from Uniprot, a comprehensive resource for protein sequence and functional information. The focus was on obtaining high-quality, reviewed entries with 3D structural data and catalytic properties to ensure the reliability and applicability of the data for predicting enzyme functions. \autocite{uniprotconsortiumUniProtUniversalProtein2021}
 
 Uniprot, or the Universal Protein Resource, is a central repository of protein sequence and annotation data. It is widely recognized for its comprehensive, high-quality data, making it an essential resource for bioinformatics and computational biology. Uniprot integrates information from various sources, including experimental studies, computational analysis, and literature, providing a rich and reliable dataset for scientific research.
 Key features of Uniprot include:
@@ -20,7 +20,7 @@ Key features of Uniprot include:
 
 For this study, Uniprot was chosen due to its high-quality data, extensive coverage of protein information, and user-friendly interface. The data collection process involved querying Uniprot for enzyme entries with 3D structural data and catalytic activity annotations, extracting relevant information, and preprocessing the data for model development. The next sections describe the data preprocessing, feature engineering, and model development steps in detail.
 
-The data retrieval process involved using the Uniprot REST API to download protein data that matched specific criteria. The criteria included reviewed entries with both 3D structural data and catalytic properties. The Python script below was used to automate the data retrieval and preprocessing steps:  \footcite{polleyTobiasPolDeepZyme2024}
+The data retrieval process involved using the Uniprot REST API to download protein data that matched specific criteria. The criteria included reviewed entries with both 3D structural data and catalytic properties. The Python script below was used to automate the data retrieval and preprocessing steps:  \autocite{polleyTobiasPolDeepZyme2024}
 
 \begin{figure}[bht]
 \begin{lstlisting}[caption=Python script for data retrieval and preprocessing from Uniprot, label=lst:uniprot_data_retrieval]
@@ -87,19 +87,138 @@ df = pd.read_csv(BytesIO(combined_data.encode('utf-8')), sep='\t')
 \subsection{Data Preprocessing}
 \label{sec:Data Preprocessing}
 
+Data preprocessing is a crucial step in preparing the dataset for the prediction model. It involves the protein structure download, p2rank workflow, sequence extraction and combination the data into a single dataset.
+The first step in data preprocessing is to download the 3D protein structures from the Protein Data Bank (PDB) using the PDB ID obtained from Uniprot. The PDB is a repository of experimentally determined protein structures, providing valuable insights into the 3D organization of proteins. The structures are needed for the p2rank workflow, which predicts the interactive site residues in the protein structures.
 
+\begin{figure}[bht]
+\begin{lstlisting}[caption=Python script for downloading the pdb structure, label=lst:rcsb-data-retrieval]
+    def download_pdb(pdb_id):
+        pdb_url = f"https://files.rcsb.org/download/{pdb_id}.pdb"
+        retries = 3
+        for attempt in range(retries):
+            try:
+                response = requests.get(pdb_url, timeout=10)
+                if response.status_code == 200:
+                    with open(f'../data/data_preparation/raw_pdbs/{pdb_id}.pdb', 'w') as file:
+                        file.write(response.text)
+                    return f"Download of {pdb_id} successful."
+                else:
+                    return f"Fehler beim Herunterladen der PDB-Datei {pdb_id}: {response.status_code}"
+            except requests.exceptions.RequestException as e:
+                if attempt < retries - 1:
+                    continue
+                else:
+                    return f"Error while downloading {pdb_id}: {e}"
+
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        results = list(tqdm(executor.map(download_pdb, pdb_ids), total=len(pdb_ids), desc="Herunterladen der PDB-Dateien"))
+\end{lstlisting}
+\end{figure}
+
+This script performs the following steps:
+\begin{enumerate}
+    \item requests.get: Sends an HTTP GET request to the PDB URL to download the protein structure file.
+    \item Retry Logic: Attempts to download the file up to three times in case of failures.
+    \item File Writing: Saves the downloaded PDB file to the specified directory if the download is successful.
+\end{enumerate}
+
+The ThreadPoolExecutor is used to parallelize the download process and speed up the data retrieval.
+
+The next step in data preprocessing is to run the p2rank workflow on the downloaded protein structures to predict the interactive site residues. With the following lines of code, the p2rank workflow is executed on the directory containing the PDB files:
+
+\begin{figure}[bht]
+\begin{lstlisting}[caption=Command Line for running p2rank on a given directory, label=lst:p2rank-workflow]
+    !./prank.sh predict /Users/tobias.polley/Repositories/DeepZyme/data/data_preparation/raw_pdbs/dataset.ds -o /Users/tobias.polley/Repositories/DeepZyme/data/predictions
+\end{lstlisting}
+\end{figure}
 
 \subsection{Feature Engineering}
 \label{sec:Feature Engineering}
 
+Feature engineering is a critical step in preparing data for prediction models. This process involves transforming raw data into meaningful features that can improve the performance of the model. In this section, the author describes the feature engineering techniques used in this study, focusing on the processing of protein sequences and the calculation of additional features to enhance the predictive power of the Deep Learning model.
+
+To capture meaningful information from protein sequences, this study used several features derived from the sequences, including amino acid composition, molecular weight, isoelectric point, hydrophobicity, and sequence length. These features provide valuable insights into the physicochemical properties of the proteins, enabling the model to learn patterns that correlate with enzyme functions. The ProteinAnalysis class ferom the Biopython library was used to calculate these features. The following Python code snippet demonstrates the calculation of additional features from the protein sequences:
+
+\begin{figure}[bht]
+    \begin{lstlisting}[language=Python]
+            def calculate_features(sequence):
+                sequence = clean_sequence(sequence)
+                analysis = ProteinAnalysis(sequence)
+                amino_acid_composition = list(analysis.get_amino_acids_percent().values())
+                molecular_weight = analysis.molecular_weight()
+                isolectric_point = analysis.isoelectric_point()
+                hydrophobicity = analysis.gravy()
+                sequence_length = len(sequence)
+                return amino_acid_composition + [molecular_weight, isolectric_point, hydrophobicity, sequence_length]
+    
+            additional_features = df["sequence"].apply(calculate_features)
+            additional_features = np.array(additional_features.tolist())
+\end{lstlisting}
+\caption{Source: \autocite{polleyTobiasPolDeepZyme2024}}
+\end{figure}
+
+The first step is to clean the protein sequence shown in chapter \ref{sec:Data Preprocessing}. The sequence itself is used as a feature, and additional features are calculated using the ProteinAnalysis class from Biopython. To convert the cleaned sequences into a format suitable for the model, a tokenizer is used to encode the sequences into numerical data. In the context of protein sequences, each amino acid is mapped to a unique integer. For example, the sequence "ACDEFGHIKLMNPQRSTVWY" is tokenized into a list of integers. 
+
+Tokenization involves converting each amino acid into an integer based on its position in a predefined list of valid amino acids. This process can be mathematically represented as:
+token $(x) = i $ where $ x \epsilon \{  A , C , D , E , F , G , H , I , K , L , M , N , P , Q , R , S , T , V , W , Y \}$ where $i$ is the index of the amino acid $x$ in the list.
+
+The tokenized sequence is then passed through an embedding layer that transforms these integers into dense vectors. This embedding process is essential for capturing the contextual meaning of each amino acid within the sequence:
+$embedding(i) = v$ where $v_i$ is the embedding vector for the token $i$.
+These embeddings are fed into the RNN, which processes the sequence and updates its hidden states accordingly, allowing the model to capture complex dependencies and interactions between amino acids. The sequences are then padded to ensure they all have the same length, which is necessary for batch processing in Deep Learning models.
+
+\begin{figure}[bht]
+    \begin{lstlisting}[language=Python]
+        tokenizer = Tokenizer()
+        tokenizer.fit_on_texts(sequences)
+        encoded_sequences = tokenizer.texts_to_sequences(sequences)
+        
+        max_sequence_length = max([len(seq) for seq in encoded_sequences])
+        padded_sequences = pad_sequences(encoded_sequences, maxlen=max_sequence_length, padding="post")
+\end{lstlisting}
+\caption{Source: \autocite{polleyTobiasPolDeepZyme2024}}
+\end{figure}
+
+Recent advancements have demonstrated that sequence-based models, including language models like ESM-1b, can achieve high accuracy in predicting protein functions and properties. For instance, the study by Hu et al. (2022) highlights the potential of protein-sequence based models like ESM-1b in predicting protein function from sequences. \autocite{huExploringEvolutionbasedFree2022}
+
+In addition to tokenizing the protein sequences, several biochemical features are calculated to provide a comprehensive representation of the proteins. These features include amino acid composition, molecular weight, isoelectric point, hydrophobicity, and sequence length. The Python code for calculating these features is as follows:
+
+\begin{enumerate}
+    \item \textbf{Amino Acid Composition}: The amino acid composition represents the relative frequency of each of the 20 standard amino acids in a protein sequence.
+    \begin{enumerate}
+        \item Calculation: It is calculated as the percentage of each amino acid in the sequence.
+        \item Relevance: Different proteins have characteristic amino acid compositions that can provide clues about their function and stability. For example, membrane proteins often have higher hydrophobic amino acid content.
+        \item Example: A protein with a high proportion of hydrophobic amino acids might be involved in membrane-related processes.
+    \end{enumerate}
+    \item \textbf{Molecular Weight}: Molecular weight is the total mass of all amino acids in the protein sequence.
+    \begin{enumerate}
+        \item Calculation: It is calculated by summing the average atomic masses of the amino acids in the sequence.
+        \item Relevance: The molecular weight of a protein can influence its physical and chemical properties, such as solubility and interaction with other molecules.
+        \item Example: Enzymes with larger molecular weights may have multiple domains or subunits.
+    \end{enumerate}
+    \item \textbf{Isoelectric Point}: The isoelectric point is the pH at which the protein carries no net electrical charge.
+    \begin{enumerate}
+        \item Calculation: It is determined by calculating the pH at which the positive and negative charges on the amino acids balance out.
+        \item Relevance: The pI affects protein solubility and interaction with other molecules. Proteins are least soluble at their pI and more likely to precipitate.
+        \item Example: Proteins with a low pI are often found in acidic environments, such as lysosomal enzymes.
+    \end{enumerate}
+    \item \textbf{Hydrophobicity (GRAVY Score)}: The GRAVY (Grand Average of Hydropathicity) score is a measure of the overall hydrophobic or hydrophilic nature of a protein.
+    \begin{enumerate}
+        \item Calculation: It is calculated by averaging the hydropathy values of all amino acids in the sequence.
+        \item Relevance: Hydrophobicity influences protein folding, stability, and interaction with membranes.
+        \item Example: Transmembrane proteins typically have a high GRAVY score due to their hydrophobic transmembrane regions.
+    \end{enumerate}
+    \item \textbf{Sequence length}: The sequence length is the total number of amino acids in the protein sequence.
+    \begin{enumerate}
+        \item Calculation: It is simply the count of amino acids in the sequence.
+        \item Relevance: The length of a protein can indicate its complexity and the number of functional domains.
+        \item Example: Longer proteins may have multiple functional domains or be involved in complex regulatory mechanisms.
+    \end{enumerate}
+\end{enumerate}
+
+These biochemical features provide a multi-dimensional representation of protein sequences, capturing both sequence-specific information and physicochemical properties. This feature-set is essential for analyzing the enzymes and predicting their functions accurately. A study by Gainza et al. (2020) demonstrates the importance of incorporating physicochemical features in protein function prediction models, showing that these features enhance the model's performance. \autocite{gainzaDecipheringInteractionFingerprints2020}
 \subsection{Model Development}
 \label{sec:Model Development}
 
-\subsubsection{Model Architecture}
-\label{sec:Model Architecture}
-
-\subsubsection{Model Training}
-\label{sec:Model Training}
 
 \subsubsection{Model Evaluation}
 \label{sec:Model Evaluation}

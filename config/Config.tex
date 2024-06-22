@@ -89,7 +89,7 @@ final             % draft beschleunigt die Kompilierung
 % Zitate und Quellenverzeichnis
 \usepackage[
     bibstyle=authoryear,
-    citestyle=authoryear-fhdw,  
+    citestyle=ieee,  
     giveninits=false,         % false = Vornamen werden ausgeschrieben
     natbib=true,
     urldate=long,             % "besucht am" - Datum
@@ -98,12 +98,11 @@ final             % draft beschleunigt die Kompilierung
     dashed=false, 
     maxcitenames=3,           % max. Anzahl Autorennamen in Zitaten
     maxbibnames=99,           % max. Anzahl Autorennamen im Quellenverzeichnis
-    %backend=bibtex           % Ggf. für ältere Distributionen bibtex verwenden
     backend=biber
 ]{biblatex}
-  
+
 % Bibliograpthy
-\bibliography{library/Bachelor Thesis}
+\bibliography{library/BachelorThesis}
 
 % Keine Einrückung bei einem neuen Absatz 
 \parindent 0pt 
@@ -237,4 +236,4 @@ final             % draft beschleunigt die Kompilierung
 \usepackage{pythonhighlight}
 
 \makeglossaries\makeglossaries
-\input{config/List_of_abbreviations.tex}
+\input{config/List_of_abbreviations}

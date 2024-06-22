@@ -1,13 +1,14 @@
 %!TEX root = ../Thesis.tex
-\section*{List of references}
-\addcontentsline{toc}{section}{List of references}
-\fancyhead[R]{List of references}
+\section*{List of References}
+\addcontentsline{toc}{section}{List of References}
+\fancyhead[R]{List of References}
 
 \defbibheading{mono}{\subsection*{Monographien}}
 \defbibheading{mag}{\subsection*{Aufsätze in Sammelbänden und Zeitschriften}}
-\defbibheading{article}{\subsection*{Zeitungsartikel}}
+\defbibheading{art}{\subsection*{Zeitungsartikel}}
 \defbibheading{web}{\subsection*{Internetquellen}}
-\defbibheading{misc}{\subsection*{Other sources}}
+\defbibheading{leg}{\subsection*{Rechtsprechung}}
+\defbibheading{comp}{\subsection*{Unternehmensunterlagen/Gesprächsnotizen}}
 
 \setlength\bibitemsep{1.5\itemsep}
 \setlength{\bibhang}{2em}
@@ -16,11 +17,5 @@
 
 \begingroup
 \sloppy
-
-% \printbibliography[heading=mono,keyword=mono]
-% \printbibliography[heading=mag,keyword=mag]
-% \printbibliography[heading=web,keyword=web]
-\printbibliography[heading=article,keyword=article]
-\printbibliography[heading=misc,keyword=misc]
-
+\printbibliography
 \endgroup
