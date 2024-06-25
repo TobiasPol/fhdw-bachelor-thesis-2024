@@ -32,26 +32,22 @@ final             % draft beschleunigt die Kompilierung
 ]
 {scrartcl}
 
-% Vorgaben der FHDW
-\usepackage[a4paper,left=4cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
-
 %\setuptoc{toc}{totoc} % Inhaltsverzeichnis ins Inhaltsverzeichnis
 
-% English language
-\usepackage[english]{babel}
+% American English
+\usepackage[american]{babel}
 
 % Umlaute können verwendet werden
-\usepackage[utf8]{inputenc}  
+\usepackage[utf8]{inputenc}   
 
 % Echte Umlaute
-\usepackage[T1]{fontenc}
+\usepackage[T1]{fontenc} 
 
 % Latin Modern Font, Type1-Schriftart für nicht-englische Texte
-\usepackage{lmodern}
+\usepackage{lmodern} 
 
-% Zeilenabstand 1.5
-\usepackage{setspace}
-\setstretch{1.5}
+% 1/2-zeiliger Zeilenabstand
+\usepackage[onehalfspacing]{setspace}
 
 % Für die Defenition eigener Kopf- und Fußzeilen
 \usepackage{fancyhdr} 
@@ -77,7 +73,7 @@ final             % draft beschleunigt die Kompilierung
 % Ausgabe der aktuellen Uhrzeit für die Draft-Versionen
 \usepackage{datetime}
 
-% Englische Anführungszeichen
+% English quotes
 \usepackage{csquotes}
 
 % Konfiguration der Abbildungs- und Tabellenbezeichnungen
@@ -100,9 +96,9 @@ final             % draft beschleunigt die Kompilierung
     maxbibnames=99,           % max. Anzahl Autorennamen im Quellenverzeichnis
     backend=biber
 ]{biblatex}
-
+  
 % Bibliograpthy
-\bibliography{library/BachelorThesis}
+\bibliography{library/library}
 
 % Keine Einrückung bei einem neuen Absatz 
 \parindent 0pt 
@@ -132,8 +128,8 @@ final             % draft beschleunigt die Kompilierung
 \let\l@lstlisting\l@listings
 \makeatother
 
-\renewcommand*\cftfigpresnum{Abbildung~}
-\renewcommand*\cfttabpresnum{Tabelle~}
+\renewcommand*\cftfigpresnum{Figure~}
+\renewcommand*\cfttabpresnum{Table~}
 \renewcommand*\cftlistingspresnum{Listing~}
 \renewcommand{\cftfigaftersnum}{:}
 \renewcommand{\cfttabaftersnum}{:}
@@ -145,8 +141,8 @@ final             % draft beschleunigt die Kompilierung
 \setlength{\cftfigindent}{1.5em}
 \setlength{\cftlistingsindent}{1.5em}
 
-\renewcommand\lstlistlistingname{Listingverzeichnis}
-
+\renewcommand\lstlistlistingname{Listing Directory}
+ 
 % Style für Kopf- und Fußzeilenfelder
 \pagestyle{fancy}
 \fancyhf{}
@@ -160,10 +156,13 @@ final             % draft beschleunigt die Kompilierung
 
 % Anpassungen der Formatierung an Eclipse-Aussehen 
 % http://jevopi.blogspot.de/2010/03/nicely-formatted-listings-in-latex-with.html
-\definecolor{sh_comment}{rgb}{0.12, 0.38, 0.18 } %adjusted, in Eclipse: {0.25, 0.42, 0.30 } = #3F6A4D
-\definecolor{sh_keyword}{rgb}{0.37, 0.08, 0.25}  % #5F1441
-\definecolor{sh_string}{rgb}{0.06, 0.10, 0.98} % #101AF9
-
+%\definecolor{sh_comment}{rgb}{0.12, 0.38, 0.18 } %adjusted, in Eclipse: {0.25, 0.42, 0.30 } = #3F6A4D
+%\definecolor{sh_keyword}{rgb}{0.37, 0.08, 0.25}  % #5F1441
+%\definecolor{sh_string}{rgb}{0.06, 0.10, 0.98} % #101AF9
+% Für Druckausgabe sollte alles schwarz sein
+\definecolor{sh_comment}{rgb}{0.0, 0.0, 0.0 }
+\definecolor{sh_keyword}{rgb}{0.0, 0.0, 0.0 }
+\definecolor{sh_string}{rgb}{0.0, 0.0, 0.0 }
 
 \lstset{ %
   language=Python,
@@ -187,33 +186,33 @@ final             % draft beschleunigt die Kompilierung
 %\def\l@lstlisting#1#2{\@dottedtocline{1}{0em}{1.5em}{\lstlistingname\space{#1}}{#2}}
 %\makeatother
 
-% Anhangsverzeichnis
-\usepackage[nohints]{minitoc} %Anhangsverzeichnis
+% Appendix
+\usepackage[nohints]{minitoc} %Appendix
 
 \makeatletter
 \newcounter{fktnr}\setcounter{fktnr}{0}
 \newcounter{subfktnr}[fktnr]\setcounter{subfktnr}{0}
 
 \renewcommand\thesubfktnr{\arabic{fktnr}.\arabic{subfktnr}}
-\newcounter{anhangcounter}
-\newcommand{\blatt}{\stepcounter{anhangcounter}}
+\newcounter{appendixcounter}
+\newcommand{\blatt}{\stepcounter{appendixcounter}}
 
-\newcommand{\anhang}[1]{\setcounter{anhangcounter}{0}\refstepcounter{fktnr}
-\addcontentsline{fk}{subsection}{Anhang~\thefktnr: \hspace*{1em}#1}
+\newcommand{\Appendix}[1]{\setcounter{appendixcounter}{0}\refstepcounter{fktnr}
+\addcontentsline{fk}{subsection}{Appendix~\thefktnr: \hspace*{1em}#1}
 \subsection*{{Appendix~\thefktnr \hspace*{1em} #1 \hspace*{-1em}}}
 }
 
-\newcommand{\subanhang}[1]{\setcounter{anhangcounter}{0}\refstepcounter{subfktnr}
-\addcontentsline{fk}{subsubsection}{Anhang~\thesubfktnr: \hspace*{1em}#1}
+\newcommand{\subappendix}[1]{\setcounter{appendixcounter}{0}\refstepcounter{subfktnr}
+\addcontentsline{fk}{subsubsection}{Appendix~\thesubfktnr: \hspace*{1em}#1}
 \subsubsection*{{Appendix~\thesubfktnr \hspace*{1em} #1 \hspace*{-1em}}}
 }
 
-\newcommand{\anhangsverzeichnis}{\mtcaddsection{\subsection*{Appendix \@mkboth{FKT}{FKT}}}\@starttoc{fk}\newpage}
+\newcommand{\appendixlist}{\mtcaddsection{\subsection*{Appendix \@mkboth{FKT}{FKT}}}\@starttoc{fk}\newpage}
 
 % Links im PDF
 \usepackage[pdfpagemode={UseOutlines}, plainpages=false,breaklinks=true,pdfpagelabels]{hyperref}
 
- % Abkürzungsverzeichnis
+% List of abbreviations
 \usepackage[automake,
 			acronym,         % create list of acronyms
             nonumberlist,
@@ -230,10 +229,10 @@ final             % draft beschleunigt die Kompilierung
 }
 
 % Verbessert das Referenzieren von Kapiteln, Abbildungen etc.
-\usepackage[english,capitalise]{cleveref}
+\usepackage{cleveref}
 
-% Python code highlighting
-\usepackage{pythonhighlight}
+% Geometry package
+\usepackage{geometry}
 
-\makeglossaries\makeglossaries
-\input{config/List_of_abbreviations}
+\makeglossaries\makeglossaries 
+\input{/Users/tobias.polley/Repositories/fhdw-bachelor-thesis-2024/config/Abbreviations}

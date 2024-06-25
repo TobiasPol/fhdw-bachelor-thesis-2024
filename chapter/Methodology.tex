@@ -5,10 +5,9 @@
 \subsection{Data Collection}
 \label{sec:Data Collection}
 
-Data collection is a critical step in developing predictive models, as the quality and relevance of the data directly impact the model's performance. In this thesis, the data was collected from Uniprot, a comprehensive resource for protein sequence and functional information. The focus was on obtaining high-quality, reviewed entries with 3D structural data and catalytic properties to ensure the reliability and applicability of the data for predicting enzyme functions. \autocite{uniprotconsortiumUniProtUniversalProtein2021}
+Data collection is the most crucial step in model building since the quality and relevance of the data will directly affect the model's performance. The data for this thesis was collected from UniProt, a very useful resource as it provides protein sequence and functional information. UniProt or Universal Protein Resource is a central protein sequence, and annotation database. It is widely accepted as comprehensive and provides high-quality data, which makes it a must to perform bioinformatics and computational biology. Uniprot pools in much valuable information: experimental findings, different kinds of analyses, and literature information and hence provides rich and reliable sources of further research. Researchers can receive high-quality reviewed entries with 3D structural data and catalytic properties in place, which makes the data reliable and applicable for predicting enzyme functions. \autocite{uniprotconsortiumUniProtUniversalProtein2021}
 
-Uniprot, or the Universal Protein Resource, is a central repository of protein sequence and annotation data. It is widely recognized for its comprehensive, high-quality data, making it an essential resource for bioinformatics and computational biology. Uniprot integrates information from various sources, including experimental studies, computational analysis, and literature, providing a rich and reliable dataset for scientific research.
-Key features of Uniprot include:
+Some of the main features of Uniprot are:
 
 \begin{enumerate}
     \item Comprehensive Protein Data: Uniprot contains a vast collection of protein sequences, functional annotations, and cross-references to other databases, making it a valuable resource for protein research.
@@ -18,11 +17,9 @@ Key features of Uniprot include:
     \item Cross-references: Extensive cross-references to other databases (e.g., PDB, BRENDA, Reactome) enhance the richness of the data.
 \end{enumerate}
 
-For this study, Uniprot was chosen due to its high-quality data, extensive coverage of protein information, and user-friendly interface. The data collection process involved querying Uniprot for enzyme entries with 3D structural data and catalytic activity annotations, extracting relevant information, and preprocessing the data for model development. The next sections describe the data preprocessing, feature engineering, and model development steps in detail.
+For this study, Uniprot was chosen due to its high-quality data, extensive coverage of protein information, and user-friendly interface. The data collection process involved querying Uniprot for enzyme entries with 3D structural data and catalytic activity annotations, extracting relevant information, and preprocessing the data for model development. The data retrieval process involved using the Uniprot REST API to download protein data that matched specific criteria. The criteria included reviewed entries with both 3D structural data and catalytic properties. The Python script below was used to automate the data retrieval and preprocessing steps:  \autocite{polleyTobiasPolDeepZyme2024}
 
-The data retrieval process involved using the Uniprot REST API to download protein data that matched specific criteria. The criteria included reviewed entries with both 3D structural data and catalytic properties. The Python script below was used to automate the data retrieval and preprocessing steps:  \autocite{polleyTobiasPolDeepZyme2024}
-
-\begin{figure}[bht]
+\begin{figure}[h!]
 \begin{lstlisting}[caption=Python script for data retrieval and preprocessing from Uniprot, label=lst:uniprot_data_retrieval]
 
 import requests
@@ -132,6 +129,25 @@ The next step in data preprocessing is to run the p2rank workflow on the downloa
 \end{lstlisting}
 \end{figure}
 
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{lrr}
+        \toprule
+        EC Class & Count \\
+        \midrule
+        Oxidoreductases & 23544 \\
+        Transferases & 59022 \\
+        Hydrolases & 41283 \\
+        Lyases & 2376 \\
+        Isomerases & 4617 \\
+        Ligases & 1323 \\
+        Translocases & 1836 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Distribution of EC classes in the dataset}
+    \label{tab:ec-distribution}
+\end{table}
+
 \subsection{Feature Engineering}
 \label{sec:Feature Engineering}
 
@@ -140,7 +156,7 @@ Feature engineering is a critical step in preparing data for prediction models. 
 To capture meaningful information from protein sequences, this study used several features derived from the sequences, including amino acid composition, molecular weight, isoelectric point, hydrophobicity, and sequence length. These features provide valuable insights into the physicochemical properties of the proteins, enabling the model to learn patterns that correlate with enzyme functions. The ProteinAnalysis class ferom the Biopython library was used to calculate these features. The following Python code snippet demonstrates the calculation of additional features from the protein sequences:
 
 \begin{figure}[bht]
-    \begin{lstlisting}[language=Python]
+    \begin{lstlisting}
             def calculate_features(sequence):
                 sequence = clean_sequence(sequence)
                 analysis = ProteinAnalysis(sequence)
@@ -160,6 +176,7 @@ To capture meaningful information from protein sequences, this study used severa
 The first step is to clean the protein sequence shown in chapter \ref{sec:Data Preprocessing}. The sequence itself is used as a feature, and additional features are calculated using the ProteinAnalysis class from Biopython. To convert the cleaned sequences into a format suitable for the model, a tokenizer is used to encode the sequences into numerical data. In the context of protein sequences, each amino acid is mapped to a unique integer. For example, the sequence "ACDEFGHIKLMNPQRSTVWY" is tokenized into a list of integers. 
 
 Tokenization involves converting each amino acid into an integer based on its position in a predefined list of valid amino acids. This process can be mathematically represented as:
+
 token $(x) = i $ where $ x \epsilon \{  A , C , D , E , F , G , H , I , K , L , M , N , P , Q , R , S , T , V , W , Y \}$ where $i$ is the index of the amino acid $x$ in the list.
 
 The tokenized sequence is then passed through an embedding layer that transforms these integers into dense vectors. This embedding process is essential for capturing the contextual meaning of each amino acid within the sequence:
@@ -167,7 +184,7 @@ $embedding(i) = v$ where $v_i$ is the embedding vector for the token $i$.
 These embeddings are fed into the RNN, which processes the sequence and updates its hidden states accordingly, allowing the model to capture complex dependencies and interactions between amino acids. The sequences are then padded to ensure they all have the same length, which is necessary for batch processing in Deep Learning models.
 
 \begin{figure}[bht]
-    \begin{lstlisting}[language=Python]
+    \begin{lstlisting}
         tokenizer = Tokenizer()
         tokenizer.fit_on_texts(sequences)
         encoded_sequences = tokenizer.texts_to_sequences(sequences)
@@ -219,6 +236,13 @@ These biochemical features provide a multi-dimensional representation of protein
 \subsection{Model Development}
 \label{sec:Model Development}
 
+In this section, this studys describes the model development process, including data splitting, model architecture, and the rationale behind the chosen methods. The goal is to predict enzyme commission (EC) classes based on protein sequences using a deep learning approach enhanced by additional biochemical features.
 
-\subsubsection{Model Evaluation}
-\label{sec:Model Evaluation}
+To use diffrent models for each hierachy level, the data is split into four levels of the EC hierachy. The first level represents the broadest classification, while the fourth level provides the most specific classification. This ensures that models are trained and evaluated on appropriately structured data, allowing for predictions at varying levels of specificity.
+
+The model architecture combines sequence-based features with additional biochemical features to enhance prediction accuracy. The architecture consists of an embedding layer, two LSTM layers, and dense layers that integrate additional features.
+
+\lstinputlisting[caption=Python code for creating the model architecture, label={lst:create-model}, language=python]{code/create_model.py}
+
+The embdding layer converts amino acid sequences into dense vector representations, capturing semantic similarities between amino acids. This layer allows the model to handle varying sequence lengths and to learn useful representations of amino acids in the context of their sequence. After that Long Short-Term Memory (LSTM) layers are used to capture long-range dependencies in the sequence data, which is crucial for understanding the functional context of amino acids within the sequence. LSTMs are particularly effective in modeling sequential data due to their ability to remember information for long periods and manage the vanishing gradient problem. LSTMs are particularly well-suited for tasks involving sequence data due to their ability to manage long-term dependencies and their robustness against the vanishing gradient problem. Studies have demonstrated the effectiveness of LSTMs in various sequence analysis tasks, including protein function prediction and other bioinformatics applications \autocite{liuAttentionMechanismEnhanced2019} \autocite{zhangEncoderdecoderModelsSequencetosequence2023}. Biochemical properties such as molecular weight, isoelectric point, hydrophobicity, and sequence length are included to provide additional context that can enhance the prediction accuracy. These features help the model understand the physical and chemical characteristics of the proteins, which are critical for predicting enzyme functions. The concatenation layer combines the output of the LSTM layers with the additional biochemical features, allowing the model to leverage both sequence-based and property-based information. This integration ensures that the model considers both the sequence context and the biochemical properties of the proteins. Finally the dense layers are used to integrate the combined features and produce the final classification output. These layers apply non-linear transformations to the combined features, enabling the model to learn complex patterns and relationships.
+This model uses an Adam optimizer with a learning rate of 0.001 and sparse categorical cross-entropy loss function, which is suitable for multi-class classification tasks. The model is compiled with the specified optimizer, loss function, and evaluation metrics to prepare it for training.
