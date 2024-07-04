@@ -61,9 +61,6 @@ final             % draft beschleunigt die Kompilierung
 % Für die Befehle \toprule, \midrule und \bottomrule, z.B. in Tabellen 
 \usepackage{booktabs}
 
-% Erlaubt die Benutzung von Farben
-\usepackage{color}
-
 % Verbessertes URL-Handling mit \url{http://...}
 \usepackage{url}
 
@@ -80,11 +77,11 @@ final             % draft beschleunigt die Kompilierung
 \usepackage[format=hang, font={footnotesize, sf}, labelfont=bf, justification=raggedright,singlelinecheck=false]{caption}
 
 % Verbessert die Lesbarkeit durch Mikrotypografie
-\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}  
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=nonfrench,factor=1100,stretch=10,shrink=10]{microtype}  
 
 % Zitate und Quellenverzeichnis
 \usepackage[
-    bibstyle=authoryear,
+    bibstyle=ieee,
     citestyle=ieee,  
     giveninits=false,         % false = Vornamen werden ausgeschrieben
     natbib=true,
@@ -96,7 +93,15 @@ final             % draft beschleunigt die Kompilierung
     maxbibnames=99,           % max. Anzahl Autorennamen im Quellenverzeichnis
     backend=biber
 ]{biblatex}
-  
+
+\AtEveryBibitem{%
+  \clearfield{issn} % Remove issn
+  \clearfield{doi} % Remove doi
+  \clearfield{urldate} % Remove urldate
+  \ifentrytype{online}{}{% Remove url except for @online
+    \clearfield{url}
+  }
+}
 % Bibliograpthy
 \bibliography{library/library}
 
@@ -154,32 +159,33 @@ final             % draft beschleunigt die Kompilierung
 % Macro für Quellenangaben unter Abbildungen und Tabellen
 \newcommand{\source}[1]{{\vspace{-1mm}\\\footnotesize\textsf{\textbf{Source:}} \textsf{#1}\par}}
 
-% Anpassungen der Formatierung an Eclipse-Aussehen 
-% http://jevopi.blogspot.de/2010/03/nicely-formatted-listings-in-latex-with.html
-%\definecolor{sh_comment}{rgb}{0.12, 0.38, 0.18 } %adjusted, in Eclipse: {0.25, 0.42, 0.30 } = #3F6A4D
-%\definecolor{sh_keyword}{rgb}{0.37, 0.08, 0.25}  % #5F1441
-%\definecolor{sh_string}{rgb}{0.06, 0.10, 0.98} % #101AF9
-% Für Druckausgabe sollte alles schwarz sein
-\definecolor{sh_comment}{rgb}{0.0, 0.0, 0.0 }
-\definecolor{sh_keyword}{rgb}{0.0, 0.0, 0.0 }
-\definecolor{sh_string}{rgb}{0.0, 0.0, 0.0 }
+\usepackage{color}
+\definecolor{darkred}{rgb}{0.6,0.0,0.0}
+\definecolor{darkgreen}{rgb}{0,0.50,0}
+\definecolor{lightblue}{rgb}{0.0,0.42,0.91}
+\definecolor{orange}{rgb}{0.99,0.48,0.13}
+\definecolor{grass}{rgb}{0.18,0.80,0.18}
+\definecolor{pink}{rgb}{0.97,0.15,0.45}
 
-\lstset{ %
-  language=Python,
-  basicstyle=\small\ttfamily,
-  fontadjust, 
-  xrightmargin=1mm,
-  xleftmargin=5mm,
-  tabsize=2,
-  columns=flexible,
+% General Setting of listings
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false, 
+  breaklines=true,                                   
+  keepspaces=true,                                                      
+  showspaces=false,                
   showstringspaces=false,
-  rulesepcolor=\color{black},
-  showspaces=false,showtabs=false,tabsize=2,
-  stringstyle=\color{sh_string},
-  keywordstyle=\color{sh_keyword}\bfseries,
-  commentstyle=\color{sh_comment}\itshape,
-  captionpos=t,
-  lineskip=-0.3em
+  showtabs=false,                  
+  tabsize=2,
+  aboveskip=1em,
+  abovecaptionskip=-6pt,
+  captionpos=b,
+  escapeinside={\%*}{*)},
+  frame=tb,
+  numbers=left,
+  numbersep=15pt,
+  numberstyle=\scriptsize,
+  xleftmargin=2em
 }
 
 %\makeatletter
@@ -201,7 +207,6 @@ final             % draft beschleunigt die Kompilierung
 \addcontentsline{fk}{subsection}{Appendix~\thefktnr: \hspace*{1em}#1}
 \subsection*{{Appendix~\thefktnr \hspace*{1em} #1 \hspace*{-1em}}}
 }
-
 \newcommand{\subappendix}[1]{\setcounter{appendixcounter}{0}\refstepcounter{subfktnr}
 \addcontentsline{fk}{subsubsection}{Appendix~\thesubfktnr: \hspace*{1em}#1}
 \subsubsection*{{Appendix~\thesubfktnr \hspace*{1em} #1 \hspace*{-1em}}}
@@ -212,27 +217,32 @@ final             % draft beschleunigt die Kompilierung
 % Links im PDF
 \usepackage[pdfpagemode={UseOutlines}, plainpages=false,breaklinks=true,pdfpagelabels]{hyperref}
 
-% List of abbreviations
-\usepackage[automake,
-			acronym,         % create list of acronyms
-            nonumberlist,
-            toc, 
-            section,
-            nopostdot,  % avoid dot after acronym
-            hyperfirst=false,% don't hyperlink first use
-            %sanitize=none    % switch off sanitization as description % Deprecated
-            ]{glossaries}
-            \newglossarystyle{mylist}{%
-\setglossarystyle{long}% base this style on the list style
-\renewcommand*{\glossaryentryfield}[5]{%
-    \glsentryitem{##1}\textbf{##2} & ##3 \\}%
-}
+% Geometry package
+\usepackage{geometry}
+
+% Appendix
+\usepackage[toc,page]{appendix}
+
+% Math
+\usepackage{amsmath}
 
 % Verbessert das Referenzieren von Kapiteln, Abbildungen etc.
 \usepackage{cleveref}
 
-% Geometry package
-\usepackage{geometry}
+ % Abkürzungsverzeichnis
+ \usepackage[automake,
+ acronym,         % create list of acronyms
+       nonumberlist,
+       toc, 
+       section,
+       nopostdot,  % avoid dot after acronym
+       hyperfirst=false,% don't hyperlink first use
+       %sanitize=none    % switch off sanitization as description % Deprecated
+       ]{glossaries}
+       \newglossarystyle{mylist}{%
+\setglossarystyle{long}% base this style on the list style
+\renewcommand*{\glossaryentryfield}[5]{%
+\glsentryitem{##1}\textbf{##2} & ##3 \\}%
+}
 
-\makeglossaries\makeglossaries 
-\input{/Users/tobias.polley/Repositories/fhdw-bachelor-thesis-2024/config/Abbreviations}
+\makeglossaries\makeglossaries

@@ -1,0 +1,10 @@
+- Explizit herausstellen was meine Arbeit besser macht als aktuelle Methoden bzw. neu machen
+	- Das und das leiste ich hier in der Arbeit (Konkret!)
+- Journal mit in die Quelle mit einpflegen
+- Visited raus aus den Quellen
+- Glossar raus
+- Gute Sectionverweise gemacht ("So wie in Kapitel xy erwähnt)
+- Ist der Code sinnvoll an der Stelle oder kann man den rauslassen
+- Wie macht man Data Preprocessing, wie macht man Data Preprocessing? Allgemeine Darstellung fehlt
+- Hyperparametertuning genau erklären
+- In Kapitel "Final Remarks and Future Work" -> 1,2 Forschungsrichtungen illustrieren

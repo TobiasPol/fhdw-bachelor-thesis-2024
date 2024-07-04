@@ -5,29 +5,36 @@
 \subsection{Principles of Enzymology}
 \label{sec:Principles of Enzymology}
 
-Enzymology is the study of enzymes, which are biological catalysts that accelerate biochemical reactions in living organisms. These macromolecules are essential for various cellular processes, including metabolism, DNA replication, and signal transduction. The understanding of enzyme structure, function, and kinetics is crucial for developing applications in biotechnology, medicine, and environmental science. \autocite{robinsonEnzymesPrinciplesBiotechnological2015}
+Enzymology is the scientific study of enzymes, which are biological catalysts that accelerate biochemical reactions in living organisms. These macromolecules are essential for various cellular processes, including metabolism, DNA replication, and signal transduction. The understanding of enzyme structure, function, and kinetics is crucial for developing applications in biotechnology, medicine, and environmental science. \autocite{robinsonEnzymesPrinciplesBiotechnological2015}
 
-\subsubsection{Enzyme Classification and Function}
-\label{sec:Enzyme Classification and Function}
-
-Enzymes are classified based on the reactions they catalyze, following a system established by the Enzyme Commission (EC). This classification system groups enzymes into six main classes, each with specific types of reactions they facilitate:
+Enzymes are classified based on the types of reactions they catalyze, according to a system established by the Enzyme Commission (EC). This classification system groups enzymes into six main classes, each with specific types of reactions they facilitate:
 
 \begin{compactenum}
     \item \textbf{Oxidoreductases:} These enzymes catalyze oxidation-reduction reactions, where the transfer of electrons occurs between molecules. Examples include dehydrogenases and oxidases.
-    
     \item \textbf{Transferases:} These enzymes transfer functional groups from one molecule to another. Examples include kinases, which transfer phosphate groups.
-    
     \item \textbf{Hydrolases:} These enzymes catalyze the hydrolysis of various bonds, including ester, glycosidic, peptide, and others. Examples include proteases and lipases.
-    
     \item \textbf{Lyases:} These enzymes add or remove groups to form double bonds, without hydrolysis or oxidation. Examples include decarboxylases and dehydratases.
-    
     \item \textbf{Isomerases:} These enzymes catalyze the rearrangement of atoms within a molecule, leading to isomerization. Examples include racemases and epimerases.
-    
     \item \textbf{Ligases:} These enzymes catalyze the joining of two molecules with the simultaneous hydrolysis of a diphosphate bond in ATP or a similar triphosphate. Examples include synthetases and carboxylases.
     
 \end{compactenum}
 
-For example, the enzyme tripeptide aminopeptidase has the EC number "3.4.11.4", where the first digit (3) represents the class (Hydrolases in this case), the second digit (4) represents the subclass (hydrolases that act on peptide bonds), the third digit (11) represents the sub-subclass (Hydrolases that cleave off the amino-terminal amino acid from a polypeptide), and the fourth digit (4) represents the serial number of the enzyme within the sub-subclass (Hydrolases that cleave off the amino-terminal end from a tripeptide). This systematic classification allows researchers to identify enzymes based on their catalytic activities and biochemical properties.
+For example, the enzyme tripeptide aminopeptidase has the EC number "3.4.11.4", where the first digit (3) represents the class (Hydrolases in this case), the second digit (4) represents the subclass (hydrolases that act on peptide bonds), the third digit (11) represents the sub-subclass (Hydrolases that cleave off the amino-terminal amino acid from a polypeptide), and the fourth digit (4) represents the serial number of the enzyme within the sub-subclass (Hydrolases that cleave off the amino-terminal end from a tripeptide). This systematic classification allows researchers to identify enzymes based on their catalytic activities and biochemical properties. \autocite{EnzymeNomenclatureRecommendations1994}
+The distribution of EC numbers across the six classes is not uniform, with hydrolases being the most abundant class, reflecting the importance of hydrolysis in biological processes. The following figure shows the distribuion of EC numbers across all four levels of the classification system:
+
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{EC Level} & \textbf{Number of classes} \\ \midrule
+    1                 & 7                          \\
+    2                 & 79                         \\
+    3                 & 320                        \\
+    4                 & 7876                       \\ \bottomrule
+    \end{tabular}
+    \caption{Distribution of EC numbers across different levels of the classification system.}
+    \label{tab:ec-level-distribution}
+\end{table}
 
 Enzymes are not only classified based on their catalytic activities but also based on their biological functions. The three-dimensional (3D) structure of enzymes is fundamental to their function. Enzymes are composed of one or more polypeptide chains that fold into specific shapes to form the active site. The active site is where substrate molecules bind and undergo a chemical reaction. The enzyme structure serves as a scaffold to support and correctly position the active site for optimal catalytic activity. 
 
@@ -53,25 +60,12 @@ The Key-Lock Principle, first proposed by Emil Fischer in 1894, is a model for u
     \begin{minipage}[t]{.8\textwidth}
     \caption{Lock-and-key model that explains the selectivity of enzymes}
     \includegraphics[width=1\textwidth]{img/key_lock_principle.png}\\
-    \source{\autocite{poshyvailo-strubeModellingSimulationsEnzymecatalyzed2015}}
+    \source{\autocite{poshyvailo-strubeModellingSimulationsEnzymecatalyzed2015a}}
     \label{fig:LockKeyPrinciple}
     \end{minipage}
 \end{figure}
 
 The precise arrangement of amino acids in the active site allows enzymes to be highly specific for their substrates, facilitating efficient catalysis. This specificity is a key feature that enables enzymes to perform their roles in various biochemical pathways with high precision. Understanding the structure-function relationship of enzymes is essential for predicting their activities.
-
-\subsubsection{Role of Enzymes in Biodegradation}
-\label{sec:Role of Enzymes in Biodegradation}
-
-Enzymes play a crucial role in the biodegradation of pollutants, including pesticides. The process involves the breakdown of complex organic molecules into simpler, less toxic forms. This degradation is essential for reducing environmental pollution and mitigating the adverse effects of hazardous chemicals.
-
-Hydrolytic Enzymes: Hydrolytic enzymes, such as esterases and amidases, catalyze the cleavage of ester and amide bonds in pesticide molecules. This hydrolysis results in the formation of smaller, more water-soluble compounds that are easier to further degrade and eliminate. For example, microbial esterases can hydrolyze organophosphate insecticides, significantly accelerating their breakdown. \autocite{munneckeEnzymaticHydrolysisOrganophosphate1976}
-
-Oxidative Enzymes: Oxidative enzymes, such as cytochrome P450 monooxygenases, introduce oxygen atoms into the pesticide molecules, increasing their solubility and reactivity. This oxidation process often converts the pesticides into less harmful substances or intermediates that can be further degraded by other enzymes. The cytochrome P450 enzymes are particularly versatile, capable of metabolizing a wide range of xenobiotics, including pesticides. \autocite{belloTheoreticalApproachMechanism2000}
-
-Reductive Enzymes: Reductive enzymes, including reductases, catalyze the reduction of pesticides, often by adding electrons and hydrogen atoms to the molecules. This reduction can break down complex structures and facilitate the conversion of pesticides into simpler, less toxic forms. Reductive dehalogenases, for instance, play a significant role in the degradation of halogenated organic compounds.
-
-The integration of enzymatic biodegradation with deep learning models can enhance the prediction and analysis of these processes. By using deep learning to analyze enzyme-substrate interactions and their corresponding (EC) classification, we can develop more accurate and efficient bioremediation strategies.
 
 \subsection{Fundamentals of Ligand Binding Site Prediction}
 \label{sec:Fundamentals of Ligand Binding Site Prediction}
@@ -110,11 +104,11 @@ P2Rank's approach can significantly enhance the accuracy of predicting enzyme-me
 \subsection{Introduction to Recurrent Neural Networks}
 \label{sec:Introduction to Recurrent Neural Networks}
 
-Recurrent Neural Networks (RNNs) are a class of artificial neural networks designed to recognize patterns in sequences of data such as text, genomes, handwriting, and spoken words. Unlike traditional feedforward neural networks, RNNs have connections that form directed cycles, allowing information to persist. This makes them particularly powerful for tasks that involve sequential data, where the order of the data points matters.
+RNNs (RNNs) are a class of artificial neural networks designed to recognize patterns in sequences of data such as text, genomes, handwriting, and spoken words. Unlike traditional feedforward neural networks, RNNs have connections that form directed cycles, allowing information to persist. This makes them particularly powerful for tasks that involve sequential data, where the order of the data points matters. \autocite{RecurrentNeuralNetwork2024}
 
-Recurrent Neural Networks (RNNs) are designed to process sequences of data by maintaining a memory of previous inputs. This memory allows RNNs to make use of information from earlier in the sequence to influence the current processing step, which is essential for understanding context in sequential data. The fundamental difference between RNNs and traditional neural networks is the presence of loops in the network that enable the persistence of information across time steps.
+RNNs are designed to process sequences of data by maintaining a memory of previous inputs. This memory allows RNNs to make use of information from earlier in the sequence to influence the current processing step, which is essential for understanding context in sequential data. The fundamental difference between RNNs and traditional neural networks is the presence of loops in the network that enable the persistence of information across time steps.
 
-Recurrent Neural Networks (RNNs) are designed to process sequences of data by maintaining a memory of previous inputs. This memory allows RNNs to make use of information from earlier in the sequence to influence the current processing step, which is essential for understanding context in sequential data. The fundamental difference between RNNs and traditional neural networks is the presence of loops in the network that enable the persistence of information across time steps.
+RNNs are designed to process sequences of data by maintaining a memory of previous inputs. This memory allows RNNs to make use of information from earlier in the sequence to influence the current processing step, which is essential for understanding context in sequential data. The fundamental difference between RNNs and traditional neural networks is the presence of loops in the network that enable the persistence of information across time steps.
 
 The basic structure of an RNN includes an input layer, a hidden layer with recurrent connections, and an output layer. At each time step, the hidden layer receives the input data and its own previous state, allowing it to retain and process information from previous steps in the sequence.
 
@@ -127,7 +121,7 @@ The following image illustrates the basic structure of an RNN:
 \begin{figure}[hbt]
     \centering
     \begin{minipage}[t]{\textwidth}
-    \caption{A diagram for a one-unit recurrent neural network (RNN).}
+    \caption{A diagram for a one-unit RNN.}
     \includegraphics[width=1\textwidth]{img/Recurrent Neural Network Unfold.png}\\
     \source{fdeloche, CC BY-SA 4.0 via Wikimedia Commons}
     \label{fig:RNN}
@@ -147,13 +141,13 @@ In this study, RNNs are employed for predicting the enzyme class based on the am
 \subsection{Evaluation of Deep Learning Models}
 \label{sec:Evaluation of Deep Learning Models}
 
-Evaluating deep learning models is essential for understanding their performance and making necessary adjustments to improve accuracy and generalizability. This chapter focuses on model comparison, adjustments, and specific evaluation techniques, including Cross Validation and Grid Search, along with key evaluation metrics.
-
 When developing a deep learning model, it is crucial to compare its performance with other models and make necessary adjustments. This process ensures that the selected model is not only the best fit for the current dataset but also generalizes well to new data. By evaluating multiple models, it is possible to identify which model architecture and hyperparameters yield the best performance. This can be done through adjusting hyperparameters such as learning rate, batch size, and network depth to optimize model performance. Techniques like dropout, L2 regularization, and batch normalization can also be used to prevent overfitting and improve model generalizability. To access the generalizability of the model, it is essential to evaluate its performance on unseen data, typically through a validation set or cross-validation. Cross-Validation is a widely used technique for evaluating model performance by splitting the dataset into multiple subsets, training the model on different subsets, and testing it on the remaining data. This process helps assess the model's performance across different data partitions and provides a more robust estimate of its generalization capabilities.
+
+The best-known cross-validation method is k-fold. he data is divided into $k$ equally sized folds. The model is trained $k$ times, each time using a diffrent fold as the validation set and the remaining $k-1$ folds as the training set. Cross-validation helps in understanding the variability of model performance and reduces the risk of overfitting. Repeating cross-validation multiple times, known as repeated cross-validation, can further enhance reliability. \autocite{krstajicCrossvalidationPitfallsWhen2014}
 
 \begin{figure}[hbt]
     \centering
-    \begin{minipage}[t]{\textwidth}
+    \begin{minipage}[t]{.8\textwidth}
     \caption{Cross-validation workflow for evaluating deep learning models.}
     \includegraphics[width=.8\textwidth]{img/cross_validation_workflow.png}\\
     \source{scikit-learn Documentation}
@@ -161,27 +155,26 @@ When developing a deep learning model, it is crucial to compare its performance 
     \end{minipage}
 \end{figure}
 
-The best-known cross-validation method is k-fold. he data is divided into $k$ equally sized folds. The model is trained $k$ times, each time using a diffrent fold as the validation set and the remaining $k-1$ folds as the training set. Cross-validation helps in understanding the variability of model performance and reduces the risk of overfitting. Repeating cross-validation multiple times, known as repeated cross-validation, can further enhance reliability. \autocite{krstajicCrossvalidationPitfallsWhen2014}
 Grid Search is a systematic way of tuning hyperparameters to find the optimal set that maximizes model performance. It involves defining a grid of possible hyperparameter values and exhaustively training and evaluating the model for each combination. For each combination of hyperparameters, the model is trained using the training data. The performance is than evaluated with a cross-validation for each hyperparameter combination. The hyperparameters that yield the best performance are selected as the optimal set. Grid Search is a powerful tool for fine-tuning deep learning models and optimizing their performance. \autocite{bergstraRandomSearchHyperParameter}
 
 To effectively evaluate and compare models, various metrics are used: \autocite{PrecisionRecall2024} \autocite{Fscore2024} \autocite{AccuracyPrecision2024} 
 
 \textbf{Accuracy:} Accuracy measures the proportion of correctly predicted instances out of the total instances. It is a straightforward metric but may not be reliable for imbalanced datasets.
 \begin{equation}
-    Accuracy = \frac{Total Number of Predictions}{Number of Correct Predictions}
+    Accuracy = \frac{\text{Total Number of Predictions}}{\text{Number of Correct Predictions}}
 \end{equation}
 
 \textbf{Precision:} Precision indicates the accuracy of positive predictions, reflecting how many predicted positive instances are actually positive.
 \begin{equation}
-    Precision = \frac{True Positives}{True Positives + False Positives}
+    Precision = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
 \end{equation}
 
 \textbf{Recall:} Recall measures the model’s ability to identify all relevant instances, showing the proportion of actual positives correctly identified.
 \begin{equation}
-    Recall = \frac{True Positives}{True Positives + False Negatives}
+    Recall = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
 \end{equation}
 
 \textbf{F1 Score:} The F1 Score is the harmonic mean of precision and recall, providing a balanced measure when there is an uneven class distribution.
 \begin{equation}
-    F1 Score = 2 \times \frac{Precision \times Recall}{Precision + Recall}
+    F_1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}
 \end{equation}

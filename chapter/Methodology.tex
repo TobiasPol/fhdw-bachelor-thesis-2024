@@ -5,129 +5,50 @@
 \subsection{Data Collection}
 \label{sec:Data Collection}
 
-Data collection is the most crucial step in model building since the quality and relevance of the data will directly affect the model's performance. The data for this thesis was collected from UniProt, a very useful resource as it provides protein sequence and functional information. UniProt or Universal Protein Resource is a central protein sequence, and annotation database. It is widely accepted as comprehensive and provides high-quality data, which makes it a must to perform bioinformatics and computational biology. Uniprot pools in much valuable information: experimental findings, different kinds of analyses, and literature information and hence provides rich and reliable sources of further research. Researchers can receive high-quality reviewed entries with 3D structural data and catalytic properties in place, which makes the data reliable and applicable for predicting enzyme functions. \autocite{uniprotconsortiumUniProtUniversalProtein2021}
+Data collection is a crucial step in model building, as the quality and relevance of the data directly impact the model’s performance.. The data for this thesis was collected from UniProt, a comprehensive resource that provides detailed protein sequence and functional information. UniProt or Universal Protein Resource is a central protein sequence, and annotation database. It is widely accepted as comprehensive and provides high-quality data, which makes it a must to perform bioinformatics and computational biology. UniProt pools in much valuable information: experimental findings, different kinds of analyses, and literature information and hence provides rich and reliable sources of further research. Researchers can receive high-quality reviewed entries with 3D structural data and catalytic properties in place, which makes the data reliable and applicable for predicting enzyme functions. \autocite{uniprotconsortiumUniProtUniversalProtein2021}
 
-Some of the main features of Uniprot are:
+Some of the main features of UniProt are:
 
 \begin{enumerate}
-    \item Comprehensive Protein Data: Uniprot contains a vast collection of protein sequences, functional annotations, and cross-references to other databases, making it a valuable resource for protein research.
-    \item Reviewed Entries: Uniprot contains both reviewed (Swiss-Prot) and unreviewed (TrEMBL) entries. Reviewed entries are manually curated by experts, ensuring high accuracy and reliability.
+    \item Comprehensive Protein Data: UniProt contains a vast collection of protein sequences, functional annotations, and cross-references to other databases, making it a valuable resource for protein research.
+    \item Reviewed Entries: UniProt contains both reviewed (Swiss-Prot) and unreviewed (TrEMBL) entries. Reviewed entries are manually curated by experts, ensuring high accuracy and reliability.
     \item Functional Annotations: Each protein entry includes detailed functional annotations, such as catalytic activity, biological processes, and involvement in pathways.
-    \item 3D Structural Data: Uniprot links to structural databases like PDB (Protein Data Bank), providing access to 3D structures of proteins, which are crucial for understanding enzyme mechanisms.
+    \item 3D Structural Data: UniProt links to structural databases like PDB, providing access to 3D structures of proteins, which are crucial for understanding enzyme mechanisms.
     \item Cross-references: Extensive cross-references to other databases (e.g., PDB, BRENDA, Reactome) enhance the richness of the data.
 \end{enumerate}
 
-For this study, Uniprot was chosen due to its high-quality data, extensive coverage of protein information, and user-friendly interface. The data collection process involved querying Uniprot for enzyme entries with 3D structural data and catalytic activity annotations, extracting relevant information, and preprocessing the data for model development. The data retrieval process involved using the Uniprot REST API to download protein data that matched specific criteria. The criteria included reviewed entries with both 3D structural data and catalytic properties. The Python script below was used to automate the data retrieval and preprocessing steps:  \autocite{polleyTobiasPolDeepZyme2024}
+For this study, UniProt was chosen due to its high-quality data, extensive coverage of protein information, and user-friendly interface. The data collection process involved querying UniProt for enzyme entries with 3D structural data and catalytic activity annotations, extracting relevant information, and preprocessing the data for model development. The data retrieval process utilized the UniProt REST API to download protein data that met specific criteria. The criteria included reviewed entries with both 3D structural data and catalytic properties. The following figure illustrates the data collection process:
 
-\begin{figure}[h!]
-\begin{lstlisting}[caption=Python script for data retrieval and preprocessing from Uniprot, label=lst:uniprot_data_retrieval]
-
-import requests
-from tqdm import tqdm
-import gzip
-from io import BytesIO
-import pandas as pd
-
-base_url = "https://rest.uniprot.org/uniprotkb/search?compressed=true&
-fields=accession%2Creviewed%2Cid%2Cprotein_name%2Cgene_names%2Corganism_name%
-2Cec%2Corganism_id%2Crhea%2Cxref_alphafolddb%2Cxref_pdb%2Cxref_brenda%
-2Cxref_biocyc%2Cxref_pathwaycommons%2Cxref_sabio-rk%2Cxref_reactome%
-2Cxref_plantreactome%2Cxref_signor%2Cxref_signalink%2Cxref_unipathway&
-format=tsv&query=%28*%29+AND+%28reviewed%3Atrue%29+AND+%28proteins_with%
-3A1%29+AND+%28proteins_with%3A13%29"
-
-size = 500
-offset = 0
-all_data = []
-
-response = requests.get(f"{base_url}&size=1")
-if response.status_code == 200:
-    total_results = int(response.headers.get("x-total-results", 0))
-else:
-    print(f"Fehler beim Abrufen der Daten: {response.status_code}")
-    total_results = 0
-
-with tqdm(total=total_results, desc="Abrufen der Daten", unit=" Eintrag") as pbar:
-    while offset < total_results:
-        url = f"{base_url}&size={size}&offset={offset}"
-        response = requests.get(url)
-        
-        if response.status_code == 200:
-            with gzip.GzipFile(fileobj=BytesIO(response.content)) as f:
-                data = f.read().decode('utf-8')
-            if not data.strip():
-                break
-            all_data.append(data)
-            offset += size
-            pbar.update(size)
-        else:
-            print(f"Fehler beim Abrufen der Daten: {response.status_code}")
-            break
-
-combined_data = "\n".join(all_data)
-
-df = pd.read_csv(BytesIO(combined_data.encode('utf-8')), sep='\t')
-
-\end{lstlisting}
+\begin{figure}[hbt]
+    \centering
+    \begin{minipage}[t]{.8\textwidth}
+    \caption{Data Collection \& P2Rank Process}
+    \includegraphics[width=1\textwidth]{img/Data-Preparation-Processing-Workflow.png}
+    \source{Own illustration}
+    \label{fig:Data-Preparation-Processing-Workflow}
+    \end{minipage}
 \end{figure}
 
 
 \begin{compactenum}
-    \item API Request: The script constructs a query to the Uniprot REST API to retrieve reviewed protein entries with specified fields and criteria.
-    \item Data Retrieval: Data is retrieved in compressed format and decompressed using gzip.
-    \item Data Parsing: The decompressed data is read into a Pandas DataFrame.
+    \item API Request: The script constructs a query to the UniProt REST API to retrieve reviewed protein entries with specified fields and criteria.
+    \item Data Retrieval: Data is retrieved and transformed into a pandas DataFrame for further processing.
     \item Data Filtering: The DataFrame is filtered to retain entries with non-null EC numbers and PDB codes.
-    \item Data Splitting: Entries with multiple PDB codes are split into separate rows for each PDB code.
-    \item Data Saving: The processed data is saved as a TSV file for further analysis.
+    \item PDB Download: The PDB files corresponding to the protein entries are downloaded from the PDB database using the PDB IDs.
+    \item P2Rank Prediction: The P2Rank workflow is applied to the PDB files to predict interactive site residues.
+    \item Data Integration: The interactive site predictions are integrated with the protein sequences for further analysis.
 \end{compactenum}
 
 \subsection{Data Preprocessing}
 \label{sec:Data Preprocessing}
 
-Data preprocessing is a crucial step in preparing the dataset for the prediction model. It involves the protein structure download, p2rank workflow, sequence extraction and combination the data into a single dataset.
-The first step in data preprocessing is to download the 3D protein structures from the Protein Data Bank (PDB) using the PDB ID obtained from Uniprot. The PDB is a repository of experimentally determined protein structures, providing valuable insights into the 3D organization of proteins. The structures are needed for the p2rank workflow, which predicts the interactive site residues in the protein structures.
+After data collection, the next step is to preprocess the data to make it suitable for model training. Data preprocessing involves several critical steps to prepare the dataset for the prediction model. These steps include data retrieval, cleaning, transformation, integration, and normalization. The goal of data preprocessing is to ensure that the data is clean, consistent, and suitable for training the model.
 
-\begin{figure}[bht]
-\begin{lstlisting}[caption=Python script for downloading the pdb structure, label=lst:rcsb-data-retrieval]
-    def download_pdb(pdb_id):
-        pdb_url = f"https://files.rcsb.org/download/{pdb_id}.pdb"
-        retries = 3
-        for attempt in range(retries):
-            try:
-                response = requests.get(pdb_url, timeout=10)
-                if response.status_code == 200:
-                    with open(f'../data/data_preparation/raw_pdbs/{pdb_id}.pdb', 'w') as file:
-                        file.write(response.text)
-                    return f"Download of {pdb_id} successful."
-                else:
-                    return f"Fehler beim Herunterladen der PDB-Datei {pdb_id}: {response.status_code}"
-            except requests.exceptions.RequestException as e:
-                if attempt < retries - 1:
-                    continue
-                else:
-                    return f"Error while downloading {pdb_id}: {e}"
+After collecting the sequences for every enzyme based on the Ligand-Binding-Site prediction, the sequences are cleaned by removing any non-standard amino acids, special characters, or gaps. \autocite{OneletterNotationAmino1972} This step ensures that the sequences contain only valid amino acid residues, which is crucial for accurate modeling.
 
-    with ThreadPoolExecutor(max_workers=10) as executor:
-        results = list(tqdm(executor.map(download_pdb, pdb_ids), total=len(pdb_ids), desc="Herunterladen der PDB-Dateien"))
-\end{lstlisting}
-\end{figure}
+The cleaned sequences are then tokenized and encoded into numerical data for input into the model. This involves converting each amino acid into a unique integer identifier. The sequences are also padded to ensure they all have the same length, which is necessary for batch processing in Deep Learning models. Tokenization and padding allow the model to handle sequences of varying lengths and ensure uniform input size for the neural network. \autocite{dangRepeatedPaddingData2024}
 
-This script performs the following steps:
-\begin{enumerate}
-    \item requests.get: Sends an HTTP GET request to the PDB URL to download the protein structure file.
-    \item Retry Logic: Attempts to download the file up to three times in case of failures.
-    \item File Writing: Saves the downloaded PDB file to the specified directory if the download is successful.
-\end{enumerate}
-
-The ThreadPoolExecutor is used to parallelize the download process and speed up the data retrieval.
-
-The next step in data preprocessing is to run the p2rank workflow on the downloaded protein structures to predict the interactive site residues. With the following lines of code, the p2rank workflow is executed on the directory containing the PDB files:
-
-\begin{figure}[bht]
-\begin{lstlisting}[caption=Command Line for running p2rank on a given directory, label=lst:p2rank-workflow]
-    !./prank.sh predict /Users/tobias.polley/Repositories/DeepZyme/data/data_preparation/raw_pdbs/dataset.ds -o /Users/tobias.polley/Repositories/DeepZyme/data/predictions
-\end{lstlisting}
-\end{figure}
+For gaining a first insight into the dataset, the distribution of EC classes in the dataset was analyzed. The table indicates that the dataset is highly imbalanced, with Transferases being the most common class and Ligases the least common. This imbalance can affect the model's performance, as it may struggle to learn from underrepresented classes. To address this issue, the dataset was balanced using the RandomUnderSampler algorithm from the imbalanced-learn library.
 
 \begin{table}[hbt]
     \centering
@@ -145,8 +66,12 @@ The next step in data preprocessing is to run the p2rank workflow on the downloa
         \bottomrule
     \end{tabular}
     \caption{Distribution of EC classes in the dataset}
-    \label{tab:ec-distribution}
+    \label{tab:ec-class-distribution}
 \end{table}
+
+Taking a closer look at the distribution of EC classes on the second level of the hierarchy, the class 2.7 (Phosphotransferases) is the most common, while the class 2.6 (Acyltransferases) is the least common. This is because Phosphotransferases are involved in a wide range of cellular processes, making them more prevalent in the dataset. The class 2.6, on the other hand, is more specialized and less common in the dataset. After rebalancing the dataset, the distribution of EC classes is more uniform, but still not perfectly balanced. Further optimization may be required, but is beyond the scope of this study and would require additional data in the UniProt database.
+
+Finally, the transformed features are integrated into a single dataset. The data is then normalized to ensure that all features are on a similar scale, which is important for the convergence of deep learning models. Normalization helps in speeding up the training process and achieving better performance. \autocite{ioffeBatchNormalizationAccelerating2015}
 
 \subsection{Feature Engineering}
 \label{sec:Feature Engineering}
@@ -155,45 +80,19 @@ Feature engineering is a critical step in preparing data for prediction models. 
 
 To capture meaningful information from protein sequences, this study used several features derived from the sequences, including amino acid composition, molecular weight, isoelectric point, hydrophobicity, and sequence length. These features provide valuable insights into the physicochemical properties of the proteins, enabling the model to learn patterns that correlate with enzyme functions. The ProteinAnalysis class ferom the Biopython library was used to calculate these features. The following Python code snippet demonstrates the calculation of additional features from the protein sequences:
 
-\begin{figure}[bht]
-    \begin{lstlisting}
-            def calculate_features(sequence):
-                sequence = clean_sequence(sequence)
-                analysis = ProteinAnalysis(sequence)
-                amino_acid_composition = list(analysis.get_amino_acids_percent().values())
-                molecular_weight = analysis.molecular_weight()
-                isolectric_point = analysis.isoelectric_point()
-                hydrophobicity = analysis.gravy()
-                sequence_length = len(sequence)
-                return amino_acid_composition + [molecular_weight, isolectric_point, hydrophobicity, sequence_length]
-    
-            additional_features = df["sequence"].apply(calculate_features)
-            additional_features = np.array(additional_features.tolist())
-\end{lstlisting}
-\caption{Source: \autocite{polleyTobiasPolDeepZyme2024}}
-\end{figure}
 
-The first step is to clean the protein sequence shown in chapter \ref{sec:Data Preprocessing}. The sequence itself is used as a feature, and additional features are calculated using the ProteinAnalysis class from Biopython. To convert the cleaned sequences into a format suitable for the model, a tokenizer is used to encode the sequences into numerical data. In the context of protein sequences, each amino acid is mapped to a unique integer. For example, the sequence "ACDEFGHIKLMNPQRSTVWY" is tokenized into a list of integers. 
+The first step is to clean the protein sequence shown in chapter \ref{sec:Data Collection}. The sequence itself is used as a feature, and additional features are calculated using the ProteinAnalysis class from Biopython. To convert the cleaned sequences into a format suitable for the model, a tokenizer is used to encode the sequences into numerical data. In the context of protein sequences, each amino acid is mapped to a unique integer. For example, the sequence "ACDEFGHIKLMNPQRSTVWY" is tokenized into a list of integers. 
 
 Tokenization involves converting each amino acid into an integer based on its position in a predefined list of valid amino acids. This process can be mathematically represented as:
 
-token $(x) = i $ where $ x \epsilon \{  A , C , D , E , F , G , H , I , K , L , M , N , P , Q , R , S , T , V , W , Y \}$ where $i$ is the index of the amino acid $x$ in the list.
+\begin{align*}
+    token(x)=i\quad\text{where}\quad x \in \{A, C, D, E, F, G, H, I, K, L, M, N, P, Q, R, S, T, V, \\
+    W, Y\} \quad \text{and} \quad i \quad \text{is the index of amino acid} \quad x \quad \text{in the list}
+\end{align*}
 
 The tokenized sequence is then passed through an embedding layer that transforms these integers into dense vectors. This embedding process is essential for capturing the contextual meaning of each amino acid within the sequence:
 $embedding(i) = v$ where $v_i$ is the embedding vector for the token $i$.
 These embeddings are fed into the RNN, which processes the sequence and updates its hidden states accordingly, allowing the model to capture complex dependencies and interactions between amino acids. The sequences are then padded to ensure they all have the same length, which is necessary for batch processing in Deep Learning models.
-
-\begin{figure}[bht]
-    \begin{lstlisting}
-        tokenizer = Tokenizer()
-        tokenizer.fit_on_texts(sequences)
-        encoded_sequences = tokenizer.texts_to_sequences(sequences)
-        
-        max_sequence_length = max([len(seq) for seq in encoded_sequences])
-        padded_sequences = pad_sequences(encoded_sequences, maxlen=max_sequence_length, padding="post")
-\end{lstlisting}
-\caption{Source: \autocite{polleyTobiasPolDeepZyme2024}}
-\end{figure}
 
 Recent advancements have demonstrated that sequence-based models, including language models like ESM-1b, can achieve high accuracy in predicting protein functions and properties. For instance, the study by Hu et al. (2022) highlights the potential of protein-sequence based models like ESM-1b in predicting protein function from sequences. \autocite{huExploringEvolutionbasedFree2022}
 
@@ -232,17 +131,17 @@ In addition to tokenizing the protein sequences, several biochemical features ar
     \end{enumerate}
 \end{enumerate}
 
-These biochemical features provide a multi-dimensional representation of protein sequences, capturing both sequence-specific information and physicochemical properties. This feature-set is essential for analyzing the enzymes and predicting their functions accurately. A study by Gainza et al. (2020) demonstrates the importance of incorporating physicochemical features in protein function prediction models, showing that these features enhance the model's performance. \autocite{gainzaDecipheringInteractionFingerprints2020}
+These biochemical features provide a multi-dimensional representation of protein sequences, capturing both sequence-specific information and physicochemical properties. This feature-set is essential for analyzing the enzymes and predicting their functions accurately. A study by Gainza et al. (2020) demonstrates the importance of incorporating physicochemical features in protein function prediction models, showing that these features enhance the model's performance. For example, the choice of features such as molecular weight and isoelectric point is grounded in their proven relevance to protein function prediction. \autocite{gainzaDecipheringInteractionFingerprints2020}
 \subsection{Model Development}
 \label{sec:Model Development}
 
-In this section, this studys describes the model development process, including data splitting, model architecture, and the rationale behind the chosen methods. The goal is to predict enzyme commission (EC) classes based on protein sequences using a deep learning approach enhanced by additional biochemical features.
+In this section, this studys describes the model development process, including data splitting, model architecture, and the rationale behind the chosen methods. The goal is to predict EC classes based on protein sequences using a deep learning approach enhanced by additional biochemical features.
 
 To use diffrent models for each hierachy level, the data is split into four levels of the EC hierachy. The first level represents the broadest classification, while the fourth level provides the most specific classification. This ensures that models are trained and evaluated on appropriately structured data, allowing for predictions at varying levels of specificity.
 
 The model architecture combines sequence-based features with additional biochemical features to enhance prediction accuracy. The architecture consists of an embedding layer, two LSTM layers, and dense layers that integrate additional features.
 
-\lstinputlisting[caption=Python code for creating the model architecture, label={lst:create-model}, language=python]{code/create_model.py}
+The embdding layer converts amino acid sequences into dense vector representations, capturing semantic similarities between amino acids. This layer allows the model to handle varying sequence lengths and to learn useful representations of amino acids in the context of their sequence. After that Long Short-Term Memory (LSTM) layers are used to capture long-range dependencies in the sequence data, which is crucial for understanding the functional context of amino acids within the sequence. LSTMs are particularly effective in modeling sequential data due to their ability to remember information for long periods and manage the vanishing gradient problem. LSTMs are particularly well-suited for tasks involving sequence data due to their ability to manage long-term dependencies and their robustness against the vanishing gradient problem. Studies have demonstrated the effectiveness of LSTMs in various sequence analysis tasks, including protein function prediction and other bioinformatics applications.\autocite{liuAttentionMechanismEnhanced2019} \autocite{zhangEncoderdecoderModelsSequencetosequence2023}
 
-The embdding layer converts amino acid sequences into dense vector representations, capturing semantic similarities between amino acids. This layer allows the model to handle varying sequence lengths and to learn useful representations of amino acids in the context of their sequence. After that Long Short-Term Memory (LSTM) layers are used to capture long-range dependencies in the sequence data, which is crucial for understanding the functional context of amino acids within the sequence. LSTMs are particularly effective in modeling sequential data due to their ability to remember information for long periods and manage the vanishing gradient problem. LSTMs are particularly well-suited for tasks involving sequence data due to their ability to manage long-term dependencies and their robustness against the vanishing gradient problem. Studies have demonstrated the effectiveness of LSTMs in various sequence analysis tasks, including protein function prediction and other bioinformatics applications \autocite{liuAttentionMechanismEnhanced2019} \autocite{zhangEncoderdecoderModelsSequencetosequence2023}. Biochemical properties such as molecular weight, isoelectric point, hydrophobicity, and sequence length are included to provide additional context that can enhance the prediction accuracy. These features help the model understand the physical and chemical characteristics of the proteins, which are critical for predicting enzyme functions. The concatenation layer combines the output of the LSTM layers with the additional biochemical features, allowing the model to leverage both sequence-based and property-based information. This integration ensures that the model considers both the sequence context and the biochemical properties of the proteins. Finally the dense layers are used to integrate the combined features and produce the final classification output. These layers apply non-linear transformations to the combined features, enabling the model to learn complex patterns and relationships.
+Biochemical properties such as molecular weight, isoelectric point, hydrophobicity, and sequence length are included to provide additional context that can enhance the prediction accuracy. These features help the model understand the physical and chemical characteristics of the proteins, which are critical for predicting enzyme functions. The concatenation layer combines the output of the LSTM layers with the additional biochemical features, allowing the model to leverage both sequence-based and property-based information. This integration ensures that the model considers both the sequence context and the biochemical properties of the proteins. Finally the dense layers are used to integrate the combined features and produce the final classification output. These layers apply non-linear transformations to the combined features, enabling the model to learn complex patterns and relationships.
 This model uses an Adam optimizer with a learning rate of 0.001 and sparse categorical cross-entropy loss function, which is suitable for multi-class classification tasks. The model is compiled with the specified optimizer, loss function, and evaluation metrics to prepare it for training.

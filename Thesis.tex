@@ -9,12 +9,12 @@
 \newcommand{\martikelnummer}{100853}
 \newcommand{\dokumententyp}{Bachelorthesis}
 \newcommand{\abgabedatum}{\today} 
-\newcommand{\ort}{Bergisch Gladbach} 
+\newcommand{\ort}{Düsseldorf} 
 \newcommand{\koorperationsunternehmen}{Bayer AG}
-\newcommand{\fhdwstandort}{Bergisch Gladbach} % oder Bielefeld, Mettmann, ...
+\newcommand{\fhdwstandort}{Bergisch Gladbach}
 \newcommand{\dokumententitel}{A Deep Learning Approach for Predicting Pesticide Degradation Based on Enzyme Classes}
 \newcommand{\dokumentenautor}{Tobias Polley}
-\newcommand{\dokumentenautoradress}{Gutenbergstr. 5\\51469 Bergisch Gladbach}
+\newcommand{\dokumentenautoradress}{Düsselthaler Str. 20\\40211 Düsseldorf}
 \newcommand{\dokumentenpruefer}{Prof. Dr. Thomas Ströder\\Fethi Temiz}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -35,14 +35,14 @@
 %% Titelseite
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\input{chapter/Titelseite}
+\input{chapter/Frontpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Draft-Einstellungen
 %%
 %% Für die finale Version auskommentieren!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\fancyhead[L]{\color{red} Stand: \today~-~\currenttime}
+% \fancyhead[L]{\color{red} Status: \today~-~\currenttime}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Verzeichnisse
@@ -50,20 +50,10 @@
 
 
 % Sperrvermerk
-\include{chapter/Sperrvermerk}
+\include{chapter/RestrictionNotice}
 
 % Inhaltsverzeichnis
 \tableofcontents\newpage
-
-% Glossar
-\renewcommand{\glossarypreamble}{\label{glossary}}
-\printglossary[style=long, title=Glossar, toctitle=Glossar] \newpage
-
-% Abkürzungsverzeichnis
-\renewcommand{\glossarypreamble}{\label{acronyms}}
-\printglossary[type=acronym, style=long, title=Abkürzungsverzeichnis, toctitle=Abkürzungsverzeichnis] \newpage
-
-\setcounter{table}{0} % printglossary erzeugt eine Tabelle, die die Nummerierung der "echten" Tabellen durcheinander bringt.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Verzeichnisse
@@ -92,8 +82,8 @@
 \pagenumbering{arabic} 
 
 \include{chapter/Introduction}
-\include{chapter/Literature_Review}
-\include{chapter/Theoretical_Background}
+\include{chapter/RelatedWorkStateOfTheArt}
+\include{chapter/TheoreticalBackground}
 \include{chapter/Methodology}
 \include{chapter/Results}
 \include{chapter/Discussion}
@@ -101,11 +91,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \include{chapter/Appendix}
-\include{chapter/List_of_references}
+\include{chapter/ListOfReferences}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\include{chapter/Statement_of_indepent_work}
+\include{chapter/StatementOfIndepentWork}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

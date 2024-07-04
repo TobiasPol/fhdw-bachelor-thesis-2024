@@ -5,8 +5,35 @@
 \subsection{Model Performance}
 \label{sec:Model Performance}
 
+This chapter presents the performance metrics of the developed model before and after the hyperparameter tuning. The model was evaluated at different EC levels to assess its accuracy, recall, and F1 score. These metrics provide insight into the model's initial performance and highlight areas for potential improvement through hyperparameter tuning.
+
+\begin{table}[hbt]
+    \centering
+    \begin{tabular}{@{}llll@{}}
+    \toprule
+    \textbf{EC Level} & \textbf{Accuracy} & \textbf{Recall} & \textbf{F1} \\ \midrule
+    1                 & 0.94              & 0,94            & 0,93        \\
+    2                 & 0,90              & 0,90            & 0,90        \\
+    3                 & 0,94              & 0,94            & 0,93        \\
+    4                 & 0,75              & 0,75            & 0,72        \\ \bottomrule
+    \end{tabular}
+    \caption{Model Performance before Hyperparametertuning}
+    \label{tab:performance-before-tuning}
+\end{table}
+
+Initial results suggest that the model performs well at higher levels of the EC hierarchy (levels 1 to 3), but there is a notable decrease in performance at the most specific level (level 4). This suggests that there is room for improvement, particularly in fine-tuning the model for more specific classifications. Predicting the 4th EC Level is significantly more challenging than predicting higher levels due to the need to select from approximately 7000 classes \ref{tab:ec-level-distribution}, increasing the difficulty of accurate prediction. Moreover, the model has to predict the right class from a very unbalanced dataset, which makes it even more challenging.
+
+To adress this issue, the model was fine-tuned using a grid search approach to optimize the hyperparameters. In addition to that the initial dataset was edited with the help of the SMOTE algorithm to balance the dataset. The results of the hyperparameter tuning are shown in the following table. \autocite{chawlaSMOTESyntheticMinority2002}
+The following table shows the performance of the model after the hyperparameter tuning:
+
+--- NEEDS TO BE DONE ---
+
 \subsection{Comparative Analysis with Existing Models}
 \label{sec:Comparative Analysis with Existing Models}
 
+--- NEEDS TO BE DONE ---
+
 \subsection{Interpretation of Model Predictions}
 \label{sec:Interpretation of Model Predictions}
+
+--- NEEDS TO BE DONE ---
