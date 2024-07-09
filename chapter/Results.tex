@@ -7,7 +7,7 @@
 
 This chapter presents the performance metrics of the developed model before and after the hyperparameter tuning. The model was evaluated at different EC levels to assess its accuracy, recall, and F1 score. These metrics provide insight into the model's initial performance and highlight areas for potential improvement through hyperparameter tuning. The metrics are calculated based on the model's predictions and the actual enzyme classes in the test dataset. For better comparability, the model's performance is evaluated at each EC level separately. Accuracy, Recall and F1 are used for a better comparison of the performance with other models.
 
-\begin{table}[hbt]
+\begin{table}[!htbp]
     \centering
     \begin{tabular}{@{}llll@{}}
     \toprule
@@ -17,13 +17,13 @@ This chapter presents the performance metrics of the developed model before and 
     3                 & 0,94              & 0,94            & 0,93        \\
     4                 & 0,75              & 0,75            & 0,72        \\ \bottomrule
     \end{tabular}
-    \caption{Model Performance before Hyperparametertuning and Resampling}
+    \caption{Model Performance before Hyperparameter tuning and Resampling}
     \label{tab:performance-before-tuning}
 \end{table}
 
 As shown in the table above, the model performs well at the first three levels of the Enzyme Commission (EC) hierarchy, with high accuracy, recall, and F1 score. However, the model's performance decreases at the fourth EC level, where the classification becomes more specific and challenging. The drop in accuracy, recall, and F1 score at this level indicates that the model struggles to predict the most detailed enzyme classes accurately. Predicting the 4th EC Level is significantly more challenging than predicting higher levels due to the need to select from approximately 7000 classes \ref{tab:ec-level-distribution}, increasing the difficulty of accurate prediction. The model's performance at the fourth EC level suggests that further optimization is needed to improve its predictive power for more specific enzyme classes. To increase the model performance the dataset was edited with the help of the RandomUnderSampler as shown in chapter \ref{sec:Data Preprocessing}. The model was retrained on the resampled dataset with no further changes to the model architecture and parameters. The results of the model performance after resampling are shown in the following table:
 
-\begin{table}[hbt]
+\begin{table}[!htbp]
     \centering
     \begin{tabular}{@{}llll@{}}
     \toprule
@@ -39,11 +39,11 @@ As shown in the table above, the model performs well at the first three levels o
 
 The performance metrics still show a significant decrease in accuracy, recall, and F1 score at the fourth EC level. The results suggest that the model performs well at higher levels of the EC hierarchy (levels 1 to 3), but there is a notable decrease in performance at the most specific level (level 4). This suggests that there is room for improvement, particularly in fine-tuning the model for more specific classifications. To optimize the predictions even further, the model was fine-tuned using hyperparameter tuning. The results of the model performance after hyperparameter tuning are shown in the following table:
 
-\begin{figure}[hbt]
+\begin{figure}[!h]
     \centering
     \begin{minipage}[t]{\textwidth}
-    \caption{Model Performance before and after Hyperparametertuning}
-    \includegraphics[width=1\textwidth]{img/model-performance-comparison.png}
+    \caption{Model Performance before and after Hyperparameter tuning}
+    \includegraphics[scale=0.55]{img/model-performance-comparison.png}
     \source{Own illustration}
     \label{fig:performance-comparison}
     \end{minipage}
@@ -51,16 +51,18 @@ The performance metrics still show a significant decrease in accuracy, recall, a
 
 The hyperparameter tuning has improved the model's performance at the fourth EC level, with a significant increase in accuracy, recall, and F1 score. This indicates that the model is better able to predict the most specific enzyme classes after the fine-tuning process. On the other hand, the model's performance at the first three levels remains consistent, suggesting that the hyperparameter tuning has not significantly impacted the model's performance at these levels. Since the increase in performance is only around 10 percent, further optimization may be required to enhance the model's predictive power at the fourth EC level. This could involve refining the model architecture, increasing the size of the training dataset, or incorporating additional features to improve the model's ability to predict specific enzyme classes. A possible approach could be to integrate anchor points based on protein sequences to get a more accurate prediction of the fourth EC level. Dalkiran et al. (2018) have shown that anchor points can significantly improve the prediction accuracy of enzyme classes, particularly at the most specific level. \autocite{dalkiranECPredToolPrediction2018a}
 
+\pagebreak
+
 \subsection{Comparative Analysis with Existing Models}
 \label{sec:Comparative Analysis with Existing Models}
 
 To evaluate the performance of the proposed model, a comparative analysis was conducted against existing state-of-the-art models: DeepRE, EzyDeep, and HecNet. The comparison focuses on the prediction accuracy across the four levels of the Enzyme Commission (EC) classification system. All models were evaluated on the same dataset provided by COFACTOR, ensuring a fair and consistent comparison. \autocite{zhangCOFACTORImprovedProtein2017}
 
-\begin{figure}[hbt]
+\begin{figure}[!h]
     \centering
     \begin{minipage}[t]{\textwidth}
     \caption{Comparison of Accuracy with other models}
-    \includegraphics[width=1\textwidth]{img/comparison-with-other-models.png}
+    \includegraphics[scale=0.7]{img/comparison-with-other-models.png}
     \source{Own illustration}
     \label{fig:comparison-with-other-models}
     \end{minipage}
@@ -70,7 +72,7 @@ As shown in the figure above, the proposed model outperforms existing models at 
 
 The model's performance at the fourth EC level is comparable with EzyDeep, indicating that it can predict specific enzyme classes with similar accuracy. Although the performance of all models declines at this level due to the increased complexity, the Thesis model still achieves the highest accuracy. This indicates its ability to manage detailed and specific enzyme classifications effectively. Maintaining high accuracy at this level is critical for understanding the enzyme's catalytic activity.
 
-Despite these advancements, there is still room for improvement. Further refinement in balancing techniques could improve model performance on underrepresented classes. A more extensive Hyperparametertuning could also enhance the model's predictive power, particularly at the most specific classification levels. In addition to that, incorporating more diverse biochemical and environmental data could enhance model accuracy, especially at the most specific classification levels. The methods to enhance the model's performance are discussed in the section \ref{sec:Final Remarks and Future Work} in detail.
+Despite these advancements, there is still room for improvement. Further refinement in balancing techniques could improve model performance on underrepresented classes. A more extensive Hyperparameter tuning could also enhance the model's predictive power, particularly at the most specific classification levels. In addition to that, incorporating more diverse biochemical and environmental data could enhance model accuracy, especially at the most specific classification levels. The methods to enhance the model's performance are discussed in the section \ref{sec:Final Remarks and Future Work} in detail.
 
 \subsection{Interpretation of Model Predictions}
 \label{sec:Interpretation of Model Predictions}
@@ -79,4 +81,4 @@ The Deep Learning model developed in this study predicts enzyme classes with a h
 
 However, the model's performance decreases at the fourth EC level, where the classification becomes highly specific. This drop in accuracy highlights the complexity and diversity of enzyme functions at this detailed level. This shows that the model needs further optimization to accurately predict the most specific enzyme classes. Integrating additional biochemical and environmental data, as well as refining the model architecture, could address the challenges associated with this level of specificity. Collaborative efforts with experimental biologists will be essential for validating and expanding the model’s applicability. In addition to that, the model's performance can be further improved by increasing the size of the training dataset and incorporating more diverse enzyme sequences. This will help the model learn more about the subtle differences between enzyme classes and improve its predictive power.
 
-The model's emphasis on ligand-binding sites offers a novel and effective approach to enzyme classification. By concentrating on these specific regions, the model accurately captures the functional aspects of enzymes that are most relevant to their interaction with pesticides. This targeted approach reduces computational complexity and enhances prediction accuracy, providing more reliable insights into enzyme activity. The ligand-binding site predictions enable the identification of key residues involved in pesticide degradation. Understanding these critical interaction points can inform the design of more effective bioremediation strategies and the development of enzyme-based products for agricultural applications. 
+The model's emphasis on ligand-binding sites offers a \textit{novel} and effective approach to enzyme classification. By concentrating on these specific regions, the model accurately captures the functional aspects of enzymes that are most relevant to their interaction with pesticides. This targeted approach reduces computational complexity and enhances prediction accuracy, providing more reliable insights into enzyme activity. The ligand-binding site predictions enable the identification of key residues involved in pesticide degradation. Understanding these critical interaction points can inform the design of more effective bioremediation strategies and the development of enzyme-based products for agricultural applications. 
